@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
-    <title><%= app.name %></title>
+    <title>If I Die Today</title>
     <!--<link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />-->
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />
     <!--<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">-->
@@ -28,8 +28,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= url() %>" />
     <meta property="og:image" content="<%= url('/logo.png') %>" />
-    <meta property="og:site_name" content="<%= app.name %>" />
-    <meta property="og:description" content="My first app" />
+    <meta property="og:site_name" content="If I Die Today" />
+    <meta property="og:description" content="A Project inspired by Post Mortem, a collaborative initiative by FRONTLINE, ProPublica and NPR on Death Investigation in America." />
     <meta property="fb:app_id" content="<%= app.id %>" />
 
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
@@ -296,6 +296,7 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
+
     <header class="clearfix">
       <p id="codTemp"></p>
       <% if (user) { %>
@@ -525,7 +526,7 @@
       <div id="cod">
 	<b>Cause of Death: </b><font id="cod2"></font><br />
 	<i style="color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
-	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
+	<img src="/images/sig.gif" style="height:100px;"/>
 	<p id="coronerME">Coroner/Medical Examiner</p>
 	<script type="text/javascript">
 	  if (hasCoroner && hasExaminer) {
@@ -541,6 +542,12 @@
       </div>
     </div> <!-- end inner-outline -->
     </div> <! -- end top-outline -->
+
+    <div style="padding: 13px 0;">
+      <b>Share on Facebook: </b>
+      <div style="display: inline;" class="fb-send" data-href="http://ifidietoday.org" data-font="lucida grande"></div>
+    </div>
+
     <div id="whodecides">
       <h3>But who will figure out why you really died?</h3>
       <table>
