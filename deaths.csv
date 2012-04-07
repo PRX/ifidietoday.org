@@ -1,0 +1,101 @@
+Low age,High age,Cause of death,Total deaths
+0,1,Congenital Anomalies,5319
+0,1,Short Gestation,4538
+0,1,SIDS,2226
+0,1,Maternal Pregnancy Complications,1608
+0,1,Unintentional Injury,1181
+0,1,Placenta Cord. Membranes,1064
+0,1,Bacterial Sepsis,652
+0,1,Respiratory Distress,595
+0,1,Circulatory System Disease,581
+0,1,Neonatal Hemorrhage,517
+1,4,Unintentional Injury,1466
+1,4,Congenital Anomalies,464
+1,4,Homicide,376
+1,4,Malignant Neoplasms,350
+1,4,Heart Disease,154
+1,4,Influenza & Pneumonia,146
+1,4,Septicemia,71
+1,4,Chronic Low. Respiratory Disease,66
+1,4,Perinatal Period,58
+1,4,Benign Neoplasms,58
+5,9,Unintentional Injury,773
+5,9,Malignant Neoplasms,477
+5,9,Congenital Anomalies,195
+5,9,Homicide,119
+5,9,Influenza & Pneumonia,106
+5,9,Heart Disease,97
+5,9,Chronic Low. Respiratory Disease,64
+5,9,Benign Neoplasms,40
+5,9,Septicemia,33
+5,9,Cerebrovascular,32
+10,14,Unintentional Injury,916
+10,14,Malignant Neoplasms,419
+10,14,Suicide,259
+10,14,Homicide,186
+10,14,Congenital Anomalies,169
+10,14,Influenza & Pneumonia,122
+10,14,Heart Disease,120
+10,14,Chronic Low. Respiratory Disease,59
+10,14,Benign Neoplasms,45
+10,14,Cerebrovascular,42
+15,24,Unintentional Injury,12458
+15,24,Homicide,4862
+15,24,Suicide,4371
+15,24,Malignant Neoplasms,1636
+15,24,Heart Disease,1035
+15,24,Congenital Anomalies,457
+15,24,Influenza & Pneumonia,418
+15,24,Complicated Pregnancy,227
+15,24,Cerebrovascular,193
+15,24,Chronic Low. Respiratory Disease,187
+25,34,Unintentional Injury,15102
+25,34,Malignant Neoplasms,12519
+25,34,Heart Disease,11081
+25,34,Suicide,8598
+25,34,Liver Disease,8377
+25,34,Cerebrovascular,6163
+25,34,Diabetes Mellitus,5725
+25,34,Chronic Low. Respiratory Disease,4664
+25,34,HIV,3388
+25,34,Influenza & Pneumonia,2918
+35,44,Unintentional Injury,15102
+35,44,Malignant Neoplasms,12519
+35,44,Heart Disease,11081
+35,44,Suicide,6677
+35,44,Homicide,2762
+35,44,Liver Disease,2481
+35,44,HIV,2425
+35,44,Cerebrovascular,1916
+35,44,Diabetes Mellitus,1872
+35,44,Influenza & Pneumonia,1314
+45,54,Malignant Neoplasms,50616
+45,54,Heart Disease,36927
+45,54,Unintentional Injury,19974
+45,54,Suicide,8598
+45,54,Liver Disease,8377
+45,54,Cerebrovascular,6163
+45,54,Diabetes Mellitus,5725
+45,54,Chronic Low. Respiratory Disease,4664
+45,54,HIV,3388
+45,54,Influenza & Pneumonia,2918
+55,64,Malignant Neoplasms,106829
+55,64,Heart Disease,67261
+55,64,Chronic Low. Respiratory Disease,14160
+55,64,Unintentional Injury,12933
+55,64,Diabetes Mellitus,11361
+55,64,Cerebrovascular,10523
+55,64,Liver Disease,9154
+55,64,Suicide,5808
+55,64,Nephritis,4792
+55,64,Septicemia,4628
+65,200,Heart Disease,479150
+65,200,Malignant Neoplasms,391035
+65,200,Chronic Low Respiratory Disease,117098
+65,200,Cerebrovascular,109238
+65,200,Alzheimer's Disease,78168
+65,200,Diabetes Mellitus,48944
+65,200,Influenza & Pneumonia,43469
+65,200,Nephritis,40465
+65,200,Unintentional Injury,39111
+65,200,Septicemia,26763
