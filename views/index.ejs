@@ -181,6 +181,14 @@
       });
     </script>
 
+    <script type="text/javascript">
+    var hasCoroner;
+    var hasExaminer;
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
+      alert(data.geo['system_types']['medical_examiner_system']);
+    };
+    </script>
+
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
