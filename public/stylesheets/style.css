@@ -25,6 +25,7 @@ body{
 	border:1px solid #252E40;
 	padding:1em;
 	background:#FFF;
+	background-image: url('/images/exclusive_paper.png');
 }
 
 #container h1{
