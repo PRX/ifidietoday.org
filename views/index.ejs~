@@ -310,26 +310,40 @@
     <% } %>
 
     <div id="container">
+      <div id="top-outline">
       <h1>Certified Copy of Record of Death</h1>
       <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
       <% if(user) { %>
       <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
       <div id="profile">
 	  <h2 id="name"><%= user.name %></h2>
-	  <b>Age: </b><font id="age"><%= user.birthday %></font></br >
-	  <b>Hometown: </b><font id="hometown"><%= user.location %></font></br >
+	  <span class="left">
+	    <b>City: </b><font id="city"><%= user.location.name %></font><br />
+	    <b>State: </b><font id="state"><%= user.location.name %></font><br />
+	  </span>
+	  <span class="right">
+	    <b>Date of Death: </b><font id="dod">@@</font><br />
+	    <b>Age of Death: </b><font id="age"><%= user.birthday%></font></br>
+	  </span>
 	  <% } else{%>
-	  <div class="img-thumbnail"><img src="#" /></div>
+	  <div class="img-thumbnail"><img src="https://graph.facebook.com/553177043/picture?type=normal" /></div>
 	  <div id="profile">
 	  <h2 id="name">Joanna S. Kao</h2>
-          <b>Age: </b><font id="age">20</font></br >
-          <b>Hometown: </b><font id="hometown">Cambridge, MA</font></br >
+	  <span class="left">
+            <b>City: </b><font id="city">Cambridge</font></br >
+	    <b>State: </b><font id="state">MA</font><br />
+	  </span>
+	  <span class="right">
+	    <b>Date of Death: </b><font id="dod">April 7, 2012</font><br />
+	    <b>Age of Death: </b><font id="age">20</font><br />
+	  </span>
 	  <% } %>
       </div>
 
       <div id="cod">
-	<b>Cause of Death: </b><font id="cod">Accidental</font><br />
+	<b>Cause of Death: </b><font id="cod">Unintentional Injury</font><br />
       </div>
+    </div> <!-- end top-outline -->
     </div> <!-- end container -->
 
   </body>

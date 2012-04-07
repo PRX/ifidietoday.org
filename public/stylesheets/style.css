@@ -1,5 +1,5 @@
 *{
-	font-family:Times New Roman, serif;
+	font-family: 'Rokkitt', serif;
 }
 
 body{
@@ -12,19 +12,25 @@ body{
 	margin-left:auto;
 	margin-right:auto;	
 	border:1px solid #252E40;
-	padding:0 2em 2em 2em;
+	padding:1em;
 	background:#FFF;
 }
 
 #container h1{
 	text-align:center;
-	font-family: 'Alex Brush', cursive;
-	height:38px;
+	font-family: 'Cabazon', sans-serif;
+	height:28px;
+	font-size:32pt;
 }
 
 #container h4{
 	text-align:center;
 	
+}
+
+#top-outline {
+	border: 1px solid #151B26;
+	padding:0 1em 1em 1em;
 }
 
 div.img-thumbnail{
@@ -46,13 +52,21 @@ div.img-thumbnail img{
 
 #profile{
 	position:relative;
-	width:500px;
+	width:465px;
 	float:right;
 	font-size:larger;
 }
 
+#profile span.left{
+	float:left;
+}
+
+#profile span.right{
+	float:right;
+}
+
 #profile font{
-	text-decoration:underline;
+	color:#666;
 }
 
 #profile h2{
@@ -62,6 +76,7 @@ div.img-thumbnail img{
 #cod{
 	font-size:larger;
 	margin-top:35px;
+	overflow:both;
 }
 
 #cod font{
