@@ -1,0 +1,602 @@
+[
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Congenital Anomalies",
+    "Total deaths": "5319"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Short Gestation",
+    "Total deaths": "4538"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "SIDS",
+    "Total deaths": "2226"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Maternal Pregnancy Complications",
+    "Total deaths": "1608"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "1181"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Placenta Cord. Membranes",
+    "Total deaths": "1064"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Bacterial Sepsis",
+    "Total deaths": "652"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Respiratory Distress",
+    "Total deaths": "595"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Circulatory System Disease",
+    "Total deaths": "581"
+  },
+  {
+    "Low age": "0",
+    "High age": "1",
+    "Cause of death": "Neonatal Hemorrhage",
+    "Total deaths": "517"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "1466"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Congenital Anomalies",
+    "Total deaths": "464"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Homicide",
+    "Total deaths": "376"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "350"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "154"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "146"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Septicemia",
+    "Total deaths": "71"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "66"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Perinatal Period",
+    "Total deaths": "58"
+  },
+  {
+    "Low age": "1",
+    "High age": "4",
+    "Cause of death": "Benign Neoplasms",
+    "Total deaths": "58"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "773"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "477"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Congenital Anomalies",
+    "Total deaths": "195"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Homicide",
+    "Total deaths": "119"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "106"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "97"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "64"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Benign Neoplasms",
+    "Total deaths": "40"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Septicemia",
+    "Total deaths": "33"
+  },
+  {
+    "Low age": "5",
+    "High age": "9",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "32"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "916"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "419"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Suicide",
+    "Total deaths": "259"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Homicide",
+    "Total deaths": "186"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Congenital Anomalies",
+    "Total deaths": "169"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "122"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "120"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "59"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Benign Neoplasms",
+    "Total deaths": "45"
+  },
+  {
+    "Low age": "10",
+    "High age": "14",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "42"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "12458"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Homicide",
+    "Total deaths": "4862"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Suicide",
+    "Total deaths": "4371"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "1636"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "1035"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Congenital Anomalies",
+    "Total deaths": "457"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "418"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Complicated Pregnancy",
+    "Total deaths": "227"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "193"
+  },
+  {
+    "Low age": "15",
+    "High age": "24",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "187"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "15102"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "12519"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "11081"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Suicide",
+    "Total deaths": "8598"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Liver Disease",
+    "Total deaths": "8377"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "6163"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Diabetes Mellitus",
+    "Total deaths": "5725"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "4664"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "HIV",
+    "Total deaths": "3388"
+  },
+  {
+    "Low age": "25",
+    "High age": "34",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "2918"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "15102"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "12519"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "11081"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Suicide",
+    "Total deaths": "6677"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Homicide",
+    "Total deaths": "2762"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Liver Disease",
+    "Total deaths": "2481"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "HIV",
+    "Total deaths": "2425"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "1916"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Diabetes Mellitus",
+    "Total deaths": "1872"
+  },
+  {
+    "Low age": "35",
+    "High age": "44",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "1314"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "50616"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "36927"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "19974"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Suicide",
+    "Total deaths": "8598"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Liver Disease",
+    "Total deaths": "8377"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "6163"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Diabetes Mellitus",
+    "Total deaths": "5725"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "4664"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "HIV",
+    "Total deaths": "3388"
+  },
+  {
+    "Low age": "45",
+    "High age": "54",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "2918"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "106829"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "67261"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Chronic Low. Respiratory Disease",
+    "Total deaths": "14160"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "12933"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Diabetes Mellitus",
+    "Total deaths": "11361"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "10523"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Liver Disease",
+    "Total deaths": "9154"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Suicide",
+    "Total deaths": "5808"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Nephritis",
+    "Total deaths": "4792"
+  },
+  {
+    "Low age": "55",
+    "High age": "64",
+    "Cause of death": "Septicemia",
+    "Total deaths": "4628"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Heart Disease",
+    "Total deaths": "479150"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Malignant Neoplasms",
+    "Total deaths": "391035"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Chronic Low Respiratory Disease",
+    "Total deaths": "117098"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Cerebrovascular",
+    "Total deaths": "109238"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Alzheimer's Disease",
+    "Total deaths": "78168"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Diabetes Mellitus",
+    "Total deaths": "48944"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Influenza & Pneumonia",
+    "Total deaths": "43469"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Nephritis",
+    "Total deaths": "40465"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Unintentional Injury",
+    "Total deaths": "39111"
+  },
+  {
+    "Low age": "65",
+    "High age": "200",
+    "Cause of death": "Septicemia",
+    "Total deaths": "26763"
+  }
+]
