@@ -66,6 +66,7 @@ div.img-thumbnail img{
 	position:relative;
 	width:465px;
 	float:right;
+	font-size:smaller;
 }
 
 #profile span.left{
@@ -87,6 +88,7 @@ div.img-thumbnail img{
 #cod{
 	margin-top:35px;
 	overflow:both;
+	font-size:smaller;
 }
 
 #cod font{

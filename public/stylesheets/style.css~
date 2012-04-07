@@ -1,3 +1,99 @@
+@font-face {
+   font-family: 'StateFaceRegular';
+   src: url('/fonts/webfont/stateface-regular-webfont.eot');
+   src: url('/fonts/webfont/stateface-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/webfont/stateface-regular-webfont.woff') format('woff'),
+        url('/fonts/webfont/stateface-regular-webfont.ttf') format('truetype'),
+        url('/fonts/webfont/stateface-regular-webfont.svg#StateFaceRegular') format('svg');
+   font-weight: normal;
+   font-style: normal;
+}
+
+*{
+	font-family: 'Courier', serif;
+}
+
+body{
+	background:#151B26;
+}
+
 #container{
-	background:blue;
+	width:960px;
+	width:680px;
+	margin-left:auto;
+	margin-right:auto;	
+	border:1px solid #252E40;
+	padding:1em;
+	background:#FFF;
+	background-image: url('/images/exclusive_paper.png');
+}
+
+#container h1{
+	text-align:center;
+	font-family: 'Cabazon', sans-serif;
+	height:28px;
+	font-size:32pt;
+}
+
+#container h4{
+	text-align:center;
+	
+}
+
+#top-outline {
+	border: 1px solid #151B26;
+	padding:0 1em 1em 1em;
+}
+
+div.img-thumbnail{
+	border-style:solid;
+	border-width:2px;
+	color:black;
+	width:150px;
+	height:175px;
+	line-height:175px;
+	display:inline-block;
+	text-align:center;
+	overflow:hidden;
+}
+
+div.img-thumbnail img{
+	vertical-align:middle;
+	width:100%;
+}
+
+#profile{
+	position:relative;
+	width:465px;
+	float:right;
+}
+
+#profile span.left{
+	float:left;
+}
+
+#profile span.right{
+	float:right;
+}
+
+#profile font{
+	color:#666;
+}
+
+#profile h2{
+	font-size:36px;
+}
+
+#cod{
+	margin-top:35px;
+	overflow:both;
+}
+
+#cod font{
+     color:red;
+}
+
+p#coronerME{
+	font-size:smaller;
+	margin-top:0px;
 }
