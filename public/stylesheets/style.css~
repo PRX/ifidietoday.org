@@ -26,6 +26,7 @@ body{
 	padding:1em;
 	background:#FFF;
 	background-image: url('/images/exclusive_paper.png');
+	position: relative;
 }
 
 #container h1{
@@ -66,6 +67,7 @@ div.img-thumbnail img{
 	position:relative;
 	width:465px;
 	float:right;
+	font-size:smaller;
 }
 
 #profile span.left{
@@ -87,6 +89,7 @@ div.img-thumbnail img{
 #cod{
 	margin-top:35px;
 	overflow:both;
+	font-size:smaller;
 }
 
 #cod font{
@@ -96,4 +99,11 @@ div.img-thumbnail img{
 p#coronerME{
 	font-size:smaller;
 	margin-top:0px;
+}
+
+#pie {
+	  font-size: 10px;
+	  position: absolute;
+	  right: -100;
+	  bottom: -100;
 }
