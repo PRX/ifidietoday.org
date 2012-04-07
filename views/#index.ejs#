@@ -13,6 +13,8 @@
     <script type="text/javascript" src="http://use.typekit.com/kih0iop.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+    <script type="text/javascript" src="scripts/Datejs-all/build/date.js"></script>
+
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
     <![endif]-->
@@ -36,161 +38,8 @@
 
     <script type="text/javascript">
 
-    var states = ['Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'District of Columbia',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennesee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming'];
-
-    var stateCodes = ['al',
-    'ak',
-    'az',
-    'ar',
-    'ca',
-    'co',
-    'ct',
-    'de',
-    'dc',
-    'fl',
-    'ga',
-    'hi',
-    'id',
-    'il',
-    'in',
-    'ia',
-    'ks',
-    'ky',
-    'la',
-    'me',
-    'md',
-    'ma',
-    'mi',
-    'mn',
-    'ms',
-    'mo',
-    'mt',
-    'ne',
-    'nv',
-    'nh',
-    'nj',
-    'nm',
-    'ny',
-    'nc',
-    'nd',
-    'oh',
-    'ok',
-    'or',
-    'pa',
-    'ri',
-    'sc',
-    'sd',
-    'tn',
-    'tx',
-    'ut',
-    'vt',
-    'va',
-    'wa',
-    'wv',
-    'wi',
-    'wy'];
-
-    var stateFace = ['B',
-    'A',
-    'D',
-    'C',
-    'E',
-    'F',
-    'G',
-    'H',
-    'y',
-    'I',
-    'J',
-    'K',
-    'M',
-    'N',
-    'O',
-    'L',
-    'P',
-    'Q',
-    'R',
-    'U',
-    'T',
-    'S',
-    'V',
-    'W',
-    'Y',
-    'X',
-    'Z',
-    'c',
-    'g',
-    'd',
-    'e',
-    'f',
-    'h',
-    'a',
-    'b',
-    'i',
-    'j',
-    'k',
-    'm',
-    'n',
-    'o',
-    'p',
-    'p',
-    'q',
-    'r',
-    't',
-    's',
-    'u',
-    'w',
-    'v',
-    'x'];
+    var states = ['Massachusetts'];
+    var stateCodes = ['ma'];
 
     </script>
 
@@ -336,6 +185,7 @@
       var state = loc.split(', ')[1];
       var _i = states.indexOf(state);
       var postal = stateCodes[_i];
+      var currentDate = 
 
       $(function() {
         $('#city').append(city);
@@ -371,13 +221,6 @@
     });
     </script>
 
-    <script type="text/javascript">
-      $(function() {
-        var statefaceKey = stateFace[_i];
-        $('#stateface').append(statefaceKey);
-      });
-    </script>
-
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
@@ -386,9 +229,6 @@
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
         <h1>Loc: <strong><%= user.location.name %></strong></h1>
         <h1>Short code: <strong id="postal"></strong></h1>
-
-        <p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface"></p>
-
         <h1 id="systems"></h1>
         <p class="tagline">
           This is your app
@@ -523,8 +363,6 @@
 	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
 	<p id="coronerME">Coroner/Medical Examiner</p>
       </div>
-
-      <p style="font-family: 'StateFaceRegular'; font-size: 100px;">R</p>
     </div> <!-- end top-outline -->
     <svg id="pie"></svg>
     <script type="text/javascript"
