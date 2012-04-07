@@ -185,9 +185,22 @@
 
     <script type="text/javascript">
     var hasCoroner = false;
-    var hasExaminer = true;
-    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
-      alert(data.geo['system_types']['medical_examiner_system']);
+    var hasExaminer = false;
+    var hasBoth = false;
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
+      if (data.geo['system_types']['medical_examiner_system'] != "none") {
+        hasExaminer = true;
+        $('#systems').append('has ME');
+      }
+
+      if (data.geo['system_types']['coroner_system'] != "none") {
+        hasCoroner = true;
+        $('#systems').append('has coroner');
+      }
+
+      if (hasCoroner && hasExaminer) {
+        hasBoth = true;
+      }
     });
     </script>
 
@@ -199,6 +212,7 @@
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
         <h1>Loc: <strong><%= user.location.name %></strong></h1>
         <h1>Short code: <strong id="postal"></strong></h1>
+        <h1 id="systems"></h1>
         <p class="tagline">
           This is your app
           <a href="<%= app.link %>" target="_top"><%= app.name %></a>
