@@ -329,6 +329,8 @@
         $.each(causesOfDeathForAge, function(i, v) {
           $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
         });
+
+        $('#cod2').append(causesOfDeathForAge[0]['Cause of death']);
       });
     </script>
 
@@ -493,13 +495,13 @@
 	<div id="inner-outline">
       <h1>Certified Copy of Record of Death</h1>
       <% if(user) { %>
-      <h4>City of <font id="city"></font>, State of <font id="state"></font></h4>
+      <h4>City of <font id="city2"></font>, State of <font id="state2"></font></h4>
       <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
       <div id="profile">
 	  <h2 id="name"><%= user.name %></h2>
 	  <span class="left">
-	    <b>City: </b><font id="city2"></font><br />
-	    <b>State: </b><font id="state2"></font><br />
+	    <b>City: </b><font id="city"></font><br />
+	    <b>State: </b><font id="state"></font><br />
 	  </span>
 	  <span class="right">
 	    <b>Date of Death: </b><font id="dod"></font><br />
@@ -521,7 +523,7 @@
       </div>
 
       <div id="cod">
-	<b>Cause of Death: </b><font id="cod">Unintentional Injury</font><br />
+	<b>Cause of Death: </b><font id="cod2"></font><br />
 	<i style="color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
 	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
 	<p id="coronerME">Coroner/Medical Examiner</p>
