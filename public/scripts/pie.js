@@ -41,7 +41,7 @@ var piefy = function() {
 	    .attr("dy", ".35em")
 	    .attr("text-anchor", "middle")
 	    .text(function(d, i) { return d.data["Cause of death"];  })
-	    .attr("display", function(d) { return d.value > .15 ? null : "none"; })
+	    .attr("display", function(d) { return d.value > .10 ? null : "none"; })
 
 	    //var arcOver = d3.svg.arc().innerRadius(0).outerRadius(r+2);
 
