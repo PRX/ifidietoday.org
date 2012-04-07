@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
     <title><%= app.name %></title>
-    <!--<link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />-->
+    <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />
-    <!--<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">-->
-    <link rel="stylesheet" href="stylesheets/style.css" />
 
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
@@ -164,11 +162,16 @@
       </div>
       <% } else { %>
       <div>
-        <!--<h1>Welcome</h1>-->
+        <h1>Welcome</h1>
         <div class="fb-login-button" data-scope="user_likes,user_photos"></div>
       </div>
       <% } %>
     </header>
+
+    <section id="get-started">
+      <p>Welcome to your Facebook app, running on <span>heroku</span>!</p>
+      <a href="https://devcenter.heroku.com/articles/facebook" target="_top" class="button">Learn How to Edit This App</a>
+    </section>
 
     <% if (user) { %>
 
@@ -232,27 +235,33 @@
 
     <% } %>
 
-    <div id="container">
-      <h1>Certified Copy of Record of Death</h1>
-      <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
-      <img src="#" id="profilepic" />
-      <div id="profile">
-	  <% if(user) { %>
-	  <h2 id="name"><%= user.name %></h2>
-	  <b>Age: </b><font id="age"><%= user.user_birthday %></font></br >
-	  <b>Hometown: </b><font id="hometown"><%= user.user_location %></font></br >
-	  <% } else{%>
-	  <h2 id="name">Joanna S. Kao</h2>
-          <b>Age: </b><font id="age">20</font></br >
-          <b>Hometown: </b><font id="hometown">Cambridge, MA</font></br >
-	  <% } %>
-      </div>
-
-      <div id="cod">
-	<b>Cause of Death: </b><font id="cod">Accidental</font><br />
-      </div>
-    </div> <!-- end container -->
-
+    <section id="guides" class="clearfix">
+      <h1>Learn More About Heroku &amp; Facebook Apps</h1>
+      <ul>
+        <li>
+          <a href="https://www.heroku.com/?utm_source=facebook&utm_medium=app&utm_campaign=fb_integration" target="_top" class="icon heroku">Heroku</a>
+          <p>Learn more about <a href="https://www.heroku.com/?utm_source=facebook&utm_medium=app&utm_campaign=fb_integration" target="_top">Heroku</a>, or read developer docs in the Heroku <a href="https://devcenter.heroku.com/" target="_top">Dev Center</a>.</p>
+        </li>
+        <li>
+          <a href="https://developers.facebook.com/docs/guides/web/" target="_top" class="icon websites">Websites</a>
+          <p>
+            Drive growth and engagement on your site with
+            Facebook Login and Social Plugins.
+          </p>
+        </li>
+        <li>
+          <a href="https://developers.facebook.com/docs/guides/mobile/" target="_top" class="icon mobile-apps">Mobile Apps</a>
+          <p>
+            Integrate with our core experience by building apps
+            that operate within Facebook.
+          </p>
+        </li>
+        <li>
+          <a href="https://developers.facebook.com/docs/guides/canvas/" target="_top" class="icon apps-on-facebook">Apps on Facebook</a>
+          <p>Let users find and connect to their friends in mobile apps and games.</p>
+        </li>
+      </ul>
+    </section>
   </body>
 </html>
 
