@@ -184,7 +184,7 @@
     <script type="text/javascript">
     var hasCoroner = false;
     var hasExaminer = true;
-    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
       alert(data.geo['system_types']['medical_examiner_system']);
     });
     </script>
