@@ -10,6 +10,9 @@
     <!--<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">-->
     <link rel="stylesheet" href="stylesheets/style.css" />
 
+    <script type="text/javascript" src="http://use.typekit.com/kih0iop.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
     <![endif]-->
@@ -28,11 +31,166 @@
     <meta property="fb:app_id" content="<%= app.id %>" />
 
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="/scripts/d3.v2.min.js"></script>
 
     <script type="text/javascript">
 
-    var states = ['Massachusetts'];
-    var stateCodes = ['ma'];
+    var states = ['Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'District of Columbia',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennesee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming'];
+
+    var stateCodes = ['al',
+    'ak',
+    'az',
+    'ar',
+    'ca',
+    'co',
+    'ct',
+    'de',
+    'dc',
+    'fl',
+    'ga',
+    'hi',
+    'id',
+    'il',
+    'in',
+    'ia',
+    'ks',
+    'ky',
+    'la',
+    'me',
+    'md',
+    'ma',
+    'mi',
+    'mn',
+    'ms',
+    'mo',
+    'mt',
+    'ne',
+    'nv',
+    'nh',
+    'nj',
+    'nm',
+    'ny',
+    'nc',
+    'nd',
+    'oh',
+    'ok',
+    'or',
+    'pa',
+    'ri',
+    'sc',
+    'sd',
+    'tn',
+    'tx',
+    'ut',
+    'vt',
+    'va',
+    'wa',
+    'wv',
+    'wi',
+    'wy'];
+
+    var stateFace = ['B',
+    'A',
+    'D',
+    'C',
+    'E',
+    'F',
+    'G',
+    'H',
+    'y',
+    'I',
+    'J',
+    'K',
+    'M',
+    'N',
+    'O',
+    'L',
+    'P',
+    'Q',
+    'R',
+    'U',
+    'T',
+    'S',
+    'V',
+    'W',
+    'Y',
+    'X',
+    'Z',
+    'c',
+    'g',
+    'd',
+    'e',
+    'f',
+    'h',
+    'a',
+    'b',
+    'i',
+    'j',
+    'k',
+    'm',
+    'n',
+    'o',
+    'p',
+    'p',
+    'q',
+    'r',
+    't',
+    's',
+    'u',
+    'w',
+    'v',
+    'x'];
 
     </script>
 
@@ -174,9 +332,18 @@
 
     <script type="text/javascript">
       var loc = "<%= user.location.name %>"
+      var city = loc.split(', ')[0];
       var state = loc.split(', ')[1];
       var _i = states.indexOf(state);
       var postal = stateCodes[_i];
+
+      $(function() {
+        $('#city').append(city);
+        $('#state').append(state);
+        $('#city2').append(city);
+        $('#state2').append(state);
+        $('#dod').append(city);
+      });
 
       $(function() {
         $('#postal').append(postal);
@@ -204,6 +371,13 @@
     });
     </script>
 
+    <script type="text/javascript">
+      $(function() {
+        var statefaceKey = stateFace[_i];
+        $('#stateface').append(statefaceKey);
+      });
+    </script>
+
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
@@ -212,6 +386,9 @@
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
         <h1>Loc: <strong><%= user.location.name %></strong></h1>
         <h1>Short code: <strong id="postal"></strong></h1>
+
+        <p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface"></p>
+
         <h1 id="systems"></h1>
         <p class="tagline">
           This is your app
@@ -312,14 +489,14 @@
     <div id="container">
       <div id="top-outline">
       <h1>Certified Copy of Record of Death</h1>
-      <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
       <% if(user) { %>
+      <h4>City of <font id="city"></font>, State of <font id="state"></font></h4>
       <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
       <div id="profile">
 	  <h2 id="name"><%= user.name %></h2>
 	  <span class="left">
-	    <b>City: </b><font id="city"><%= user.location.name %></font><br />
-	    <b>State: </b><font id="state"><%= user.location.name %></font><br />
+	    <b>City: </b><font id="city2"></font><br />
+	    <b>State: </b><font id="state2"></font><br />
 	  </span>
 	  <span class="right">
 	    <b>Date of Death: </b><font id="dod">@@</font><br />
@@ -330,11 +507,11 @@
 	  <div id="profile">
 	  <h2 id="name">Joanna S. Kao</h2>
 	  <span class="left">
-            <b>City: </b><font id="city">Cambridge</font></br >
+            <b>City: </b><font id="city">Cambridge</font><br />
 	    <b>State: </b><font id="state">MA</font><br />
 	  </span>
 	  <span class="right">
-	    <b>Date of Death: </b><font id="dod">April 7, 2012</font><br />
+	    <b>Date of Death: </b><font id="dod"></font><br />
 	    <b>Age of Death: </b><font id="age">20</font><br />
 	  </span>
 	  <% } %>
@@ -342,10 +519,17 @@
 
       <div id="cod">
 	<b>Cause of Death: </b><font id="cod">Unintentional Injury</font><br />
+	<i style="font-size:12pt; color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
+	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
+	<p id="coronerME">Coroner/Medical Examiner</p>
       </div>
-    </div> <!-- end top-outline -->
-    </div> <!-- end container -->
 
+      <p style="font-family: 'StateFaceRegular'; font-size: 100px;">R</p>
+    </div> <!-- end top-outline -->
+    <svg id="pie"></svg>
+    <script type="text/javascript"
+            src="/scripts/pie.js"></script>
+    </div> <!-- end container -->
   </body>
 </html>
 

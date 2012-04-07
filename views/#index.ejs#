@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+
+    <title><%= app.name %></title>
+    <!--<link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />-->
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />
+    <!--<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">-->
+    <link rel="stylesheet" href="stylesheets/style.css" />
+
+    <script type="text/javascript" src="http://use.typekit.com/kih0iop.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <script type="text/javascript" src="scripts/Datejs-all/build/date.js"></script>
+
+    <!--[if IEMobile]>
+    <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
+    <![endif]-->
+
+    <!-- These are Open Graph tags.  They add meta data to your  -->
+    <!-- site that facebook uses when your content is shared     -->
+    <!-- over facebook.  You should fill these tags in with      -->
+    <!-- your data.  To learn more about Open Graph, visit       -->
+    <!-- 'https://developers.facebook.com/docs/opengraph/'       -->
+    <meta property="og:title" content="<%= app.name %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= url() %>" />
+    <meta property="og:image" content="<%= url('/logo.png') %>" />
+    <meta property="og:site_name" content="<%= app.name %>" />
+    <meta property="og:description" content="My first app" />
+    <meta property="fb:app_id" content="<%= app.id %>" />
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="/scripts/d3.v2.min.js"></script>
+
+    <script type="text/javascript">
+
+    var states = ['Massachusetts'];
+    var stateCodes = ['ma'];
+
+    </script>
+
+    <script type="text/javascript">
+      function logResponse(response) {
+        if (console && console.log) {
+          console.log('The response was', response);
+        }
+      }
+
+      $(function(){
+        // Set up so we handle click on the buttons
+        $('#postToWall').click(function() {
+          FB.ui(
+            {
+              method : 'feed',
+              link   : $(this).attr('data-url')
+            },
+            function (response) {
+              // If response is null the user canceled the dialog
+              if (response != null) {
+                logResponse(response);
+              }
+            }
+          );
+        });
+
+        $('#sendToFriends').click(function() {
+          FB.ui(
+            {
+              method : 'send',
+              link   : $(this).attr('data-url')
+            },
+            function (response) {
+              // If response is null the user canceled the dialog
+              if (response != null) {
+                logResponse(response);
+              }
+            }
+          );
+        });
+
+        $('#sendRequest').click(function() {
+          FB.ui(
+            {
+              method  : 'apprequests',
+              message : $(this).attr('data-message')
+            },
+            function (response) {
+              // If response is null the user canceled the dialog
+              if (response != null) {
+                logResponse(response);
+              }
+            }
+          );
+        });
+      });
+    </script>
+
+    <!--[if IE]>
+      <script type="text/javascript">
+        var tags = ['header', 'section'];
+        while(tags.length)
+          document.createElement(tags.pop());
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '<%= app.id %>', // App ID
+          channelUrl : '<%= url_no_scheme('/channel.html') %>', // Channel File
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true // parse XFBML
+        });
+
+        // Listen to the auth.login which will be called when the user logs in
+        // using the Login button
+        FB.Event.subscribe('auth.login', function(response) {
+          // We want to reload the page now so PHP can read the cookie that the
+          // Javascript SDK sat. But we don't want to use
+          // window.location.reload() because if this is in a canvas there was a
+          // post made to this page and a reload will trigger a message to the
+          // user asking if they want to send data again.
+          window.location = window.location;
+        });
+
+        FB.Canvas.setAutoGrow();
+      };
+
+      // Load the SDK Asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <header class="clearfix">
+      <p id="codTemp"></p>
+      <% if (user) { %>
+
+
+    <script type="text/javascript">
+      var birthYear = parseInt("<%= user.birthday %>".split('/')[2]);
+      var year = (new Date()).getFullYear();
+      var age = year - birthYear;
+
+      $(function() {
+        $('#codTemp').append('Leading COD for age: ' + age + '<br>');
+      });
+
+      $.getJSON('/data/deaths.json', function(data) {
+        var causesOfDeathForAge = [];
+
+        $.each(data, function(i, cause) {
+          var low = parseInt(cause['Low age'], 10);
+          var high = parseInt(cause['High age'], 10);
+
+          if (age >= low && age < high) {
+            causesOfDeathForAge.push(cause);
+          }
+        });
+
+        causesOfDeathForAge.sort(function(a, b) {
+          return parseFloat(b['Total deaths']) - parseFloat(a['Total deaths']);
+        });
+
+        $.each(causesOfDeathForAge, function(i, v) {
+          $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      var loc = "<%= user.location.name %>"
+      var city = loc.split(', ')[0];
+      var state = loc.split(', ')[1];
+      var _i = states.indexOf(state);
+      var postal = stateCodes[_i];
+      var currentDate = 
+
+      $(function() {
+        $('#city').append(city);
+        $('#state').append(state);
+        $('#city2').append(city);
+        $('#state2').append(state);
+        $('#dod').append(city);
+      });
+
+      $(function() {
+        $('#postal').append(postal);
+      });
+    </script>
+
+    <script type="text/javascript">
+    var hasCoroner = false;
+    var hasExaminer = false;
+    var hasBoth = false;
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
+      if (data.geo['system_types']['medical_examiner_system'] != "none") {
+        hasExaminer = true;
+        $('#systems').append('has ME');
+      }
+
+      if (data.geo['system_types']['coroner_system'] != "none") {
+        hasCoroner = true;
+        $('#systems').append('has coroner');
+      }
+
+      if (hasCoroner && hasExaminer) {
+        hasBoth = true;
+      }
+    });
+    </script>
+
+
+      <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
+
+      <div>
+        <h1>Welcome, <strong><%= user.name %></strong></h1>
+        <h1>Birthday: <strong><%= user.birthday %></strong></h1>
+        <h1>Loc: <strong><%= user.location.name %></strong></h1>
+        <h1>Short code: <strong id="postal"></strong></h1>
+        <h1 id="systems"></h1>
+        <p class="tagline">
+          This is your app
+          <a href="<%= app.link %>" target="_top"><%= app.name %></a>
+        </p>
+
+        <div id="share-app">
+          <p>Share your app:</p>
+          <ul>
+            <li>
+              <a href="#" class="facebook-button" id="postToWall" data-url="<%= url() %>">
+                <span class="plus">Post to Wall</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="facebook-button speech-bubble" id="sendToFriends" data-url="<%= url() %>">
+                <span class="speech-bubble">Send Message</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Test this awesome app">
+                <span class="apprequests">Send Requests</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <% } else { %>
+      <div>
+        <!--<h1>Welcome</h1>-->
+        <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location"></div>
+     </div>
+      <% } %>
+    </header>
+
+    <% if (user) { %>
+
+    <!--<section id="samples" class="clearfix">
+      <h1>Examples of the Facebook Graph API</h1>
+
+      <div class="list">
+        <h3>A few of your friends</h3>
+        <ul id="friends" class="friends">
+          <% req.friends.forEach(function(friend) { %>
+            <li>
+              <a href="https://www.facebook.com/<%= friend.id %>" target="_top">
+                <img src="https://graph.facebook.com/<%= friend.id %>/picture?type=square" alt="<%= friend.name %>">
+                <%= friend.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="list inline">
+        <h3>Recent photos</h3>
+        <ul id="photos" class="photos">
+          <% req.photos.forEach(function(photo) { %>
+            <li style="background-image: url(<%= photo.picture %>>);" class="<%= photo.link %>">
+              <a href="<%= photo.link %>>" target="_top"></a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="list">
+        <h3>Things you like</h3>
+        <ul id="likes" class="things">
+          <% req.likes.forEach(function(like) { %>
+            <li>
+              <a href="https://www.facebook.com/<%= like.id %>" target="_top">
+                <img src="https://graph.facebook.com/<%= like.id %>/picture?type=square" alt="<%= like.name %>">
+                <%= like.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="list">
+        <h3>Friends using this app</h3>
+        <ul id="friends_using_app" class="friends">
+          <% req.friends_using_app.forEach(function(friend) { %>
+            <li>
+              <a href="https://www.facebook.com/<%= friend.id %>>" target="_top">
+                <img src="https://graph.facebook.com/<%= friend.id %>>/picture?type=square" alt="<%= friend.name %>">
+                <%= friend.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+    </section>-->
+
+    <% } %>
+
+    <div id="container">
+      <div id="top-outline">
+      <h1>Certified Copy of Record of Death</h1>
+      <% if(user) { %>
+      <h4>City of <font id="city"></font>, State of <font id="state"></font></h4>
+      <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
+      <div id="profile">
+	  <h2 id="name"><%= user.name %></h2>
+	  <span class="left">
+	    <b>City: </b><font id="city2"></font><br />
+	    <b>State: </b><font id="state2"></font><br />
+	  </span>
+	  <span class="right">
+	    <b>Date of Death: </b><font id="dod">@@</font><br />
+	    <b>Age of Death: </b><font id="age"><%= user.birthday%></font></br>
+	  </span>
+	  <% } else{%>
+	  <div class="img-thumbnail"><img src="https://graph.facebook.com/553177043/picture?type=normal" /></div>
+	  <div id="profile">
+	  <h2 id="name">Joanna S. Kao</h2>
+	  <span class="left">
+            <b>City: </b><font id="city">Cambridge</font><br />
+	    <b>State: </b><font id="state">MA</font><br />
+	  </span>
+	  <span class="right">
+	    <b>Date of Death: </b><font id="dod"></font><br />
+	    <b>Age of Death: </b><font id="age">20</font><br />
+	  </span>
+	  <% } %>
+      </div>
+
+      <div id="cod">
+	<b>Cause of Death: </b><font id="cod">Unintentional Injury</font><br />
+	<i style="font-size:12pt; color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
+	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
+	<p id="coronerME">Coroner/Medical Examiner</p>
+      </div>
+    </div> <!-- end top-outline -->
+    <svg id="pie"></svg>
+    <script type="text/javascript"
+            src="/scripts/pie.js"></script>
+    </div> <!-- end container -->
+  </body>
+</html>
+
