@@ -245,7 +245,7 @@
       </div>
       <% } else { %>
       <div>
-        <h1>Welcome</h1>
+        <!--<h1>Welcome</h1>-->
         <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location"></div>
      </div>
       <% } %>
@@ -253,7 +253,7 @@
 
     <% if (user) { %>
 
-    <section id="samples" class="clearfix">
+    <!--<section id="samples" class="clearfix">
       <h1>Examples of the Facebook Graph API</h1>
 
       <div class="list">
@@ -309,20 +309,22 @@
         </ul>
       </div>
 
-    </section>
+    </section>-->
 
     <% } %>
 
     <div id="container">
       <h1>Certified Copy of Record of Death</h1>
       <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
-      <img src="#" id="profilepic" />
+      <% if(user) { %>
+      <img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" />
       <div id="profile">
-	  <% if(user) { %>
 	  <h2 id="name"><%= user.name %></h2>
-	  <b>Age: </b><font id="age"><%= user.user_birthday %></font></br >
-	  <b>Hometown: </b><font id="hometown"><%= user.user_location %></font></br >
+	  <b>Age: </b><font id="age"><%= user.birthday %></font></br >
+	  <b>Hometown: </b><font id="hometown"><%= user.location %></font></br >
 	  <% } else{%>
+	  <img src="#" />
+	  <div id="profile">
 	  <h2 id="name">Joanna S. Kao</h2>
           <b>Age: </b><font id="age">20</font></br >
           <b>Hometown: </b><font id="hometown">Cambridge, MA</font></br >
