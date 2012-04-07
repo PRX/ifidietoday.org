@@ -338,7 +338,7 @@
       var state = loc.split(', ')[1];
       var _i = states.indexOf(state);
       var postal = stateCodes[_i];
-      var dod = Date.today().getMonthName() + " " + Date.today().getDate() + ", " + Date.today().getYear()+1900;
+      var dod = Date.today().getMonthName() + " " + Date.today().getDate() + ", " + parseInt(Date.today().getYear())+1900;
 
       $(function() {
         $('#city').append(city);
