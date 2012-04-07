@@ -127,7 +127,39 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
+    <script type="text/javascript">
+      var age = 26;
+
+      $(function() {
+        $('#codTemp').append('Leading COD for age: ' + age + '<br>');
+      });
+
+      $.getJSON('/data/deaths.json', function(data) {
+        var causesOfDeathForAge = [];
+
+        $.each(data, function(i, cause) {
+          var low = parseInt(cause['Low age'], 10);
+          var high = parseInt(cause['High age'], 10);
+
+          if (age >= low && age < high) {
+            causesOfDeathForAge.push(cause);
+          }
+        });
+
+        causesOfDeathForAge.sort(function(a, b) {
+          return parseFloat(b['Total deaths']) - parseFloat(a['Total deaths']);
+        });
+
+        $.each(causesOfDeathForAge, function(i, v) {
+          $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
+        });
+
+        // alert(causesOfDeathForAge[0]['Cause of death']);
+      });
+    </script>
+
     <header class="clearfix">
+      <p id="codTemp"></p>
       <% if (user) { %>
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
