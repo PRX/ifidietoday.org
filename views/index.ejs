@@ -31,6 +31,8 @@
     <meta property="fb:app_id" content="<%= app.id %>" />
 
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="/scripts/d3.v2.min.js"></script>
 
     <script type="text/javascript">
 
@@ -330,9 +332,15 @@
 
     <script type="text/javascript">
       var loc = "<%= user.location.name %>"
+      var city = loc.split(', ')[0];
       var state = loc.split(', ')[1];
       var _i = states.indexOf(state);
       var postal = stateCodes[_i];
+
+      $(function() {
+        $('#city').append(city);
+        $('#state').append(state);
+      });
 
       $(function() {
         $('#postal').append(postal);
@@ -476,14 +484,14 @@
     <div id="container">
       <div id="top-outline">
       <h1>Certified Copy of Record of Death</h1>
-      <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
       <% if(user) { %>
+      <h4>City of <font id="city"></font>, State of <font id="state"></font></h4>
       <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
       <div id="profile">
 	  <h2 id="name"><%= user.name %></h2>
 	  <span class="left">
-	    <b>City: </b><font id="city"><%= user.location.name %></font><br />
-	    <b>State: </b><font id="state"><%= user.location.name %></font><br />
+	    <b>City: </b><font id="city"></font><br />
+	    <b>State: </b><font id="state"></font><br />
 	  </span>
 	  <span class="right">
 	    <b>Date of Death: </b><font id="dod">@@</font><br />
@@ -513,6 +521,9 @@
 
       <p style="font-family: 'StateFaceRegular'; font-size: 100px;">R</p>
     </div> <!-- end top-outline -->
+    <svg id="pie"></svg>
+    <script type="text/javascript"
+            src="/scripts/pie.js"></script>
     </div> <!-- end container -->
   </body>
 </html>

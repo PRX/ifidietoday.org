@@ -1,16 +1,16 @@
- @font-face {
-     font-family: 'StateFaceRegular';
-     src: url('/fonts/webfont/stateface-regular-webfont.eot');
-     src: url('/fonts/webfont/stateface-regular-webfont.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/webfont/stateface-regular-webfont.woff') format('woff'),
-          url('/fonts/webfont/stateface-regular-webfont.ttf') format('truetype'),
-          url('/fonts/webfont/stateface-regular-webfont.svg#StateFaceRegular') format('svg');
-     font-weight: normal;
-     font-style: normal;
- }
+@font-face {
+   font-family: 'StateFaceRegular';
+   src: url('/fonts/webfont/stateface-regular-webfont.eot');
+   src: url('/fonts/webfont/stateface-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/webfont/stateface-regular-webfont.woff') format('woff'),
+        url('/fonts/webfont/stateface-regular-webfont.ttf') format('truetype'),
+        url('/fonts/webfont/stateface-regular-webfont.svg#StateFaceRegular') format('svg');
+   font-weight: normal;
+   font-style: normal;
+}
 
 *{
-	font-family: 'Rokkitt', serif;
+	font-family: 'Courier', serif;
 }
 
 body{
@@ -65,7 +65,6 @@ div.img-thumbnail img{
 	position:relative;
 	width:465px;
 	float:right;
-	font-size:larger;
 }
 
 #profile span.left{
@@ -85,11 +84,15 @@ div.img-thumbnail img{
 }
 
 #cod{
-	font-size:larger;
 	margin-top:35px;
 	overflow:both;
 }
 
 #cod font{
      color:red;
+}
+
+p#coronerME{
+	font-size:smaller;
+	margin-top:0px;
 }
