@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
     <title><%= app.name %></title>
-    <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
+    <!--<link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />-->
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />
+    <!--<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">-->
+    <link rel="stylesheet" href="stylesheets/style.css" />
 
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
@@ -26,6 +28,13 @@
     <meta property="fb:app_id" content="<%= app.id %>" />
 
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+    var states = ['Massachusetts'];
+    var stateCodes = ['ma'];
+
+    </script>
 
     <script type="text/javascript">
       function logResponse(response) {
@@ -128,12 +137,68 @@
     </script>
 
     <header class="clearfix">
+      <p id="codTemp"></p>
       <% if (user) { %>
+
+
+    <script type="text/javascript">
+      var birthYear = parseInt("<%= user.birthday %>".split('/')[2]);
+      var year = (new Date()).getFullYear();
+      var age = year - birthYear;
+
+      $(function() {
+        $('#codTemp').append('Leading COD for age: ' + age + '<br>');
+      });
+
+      $.getJSON('/data/deaths.json', function(data) {
+        var causesOfDeathForAge = [];
+
+        $.each(data, function(i, cause) {
+          var low = parseInt(cause['Low age'], 10);
+          var high = parseInt(cause['High age'], 10);
+
+          if (age >= low && age < high) {
+            causesOfDeathForAge.push(cause);
+          }
+        });
+
+        causesOfDeathForAge.sort(function(a, b) {
+          return parseFloat(b['Total deaths']) - parseFloat(a['Total deaths']);
+        });
+
+        $.each(causesOfDeathForAge, function(i, v) {
+          $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      var loc = "<%= user.location.name %>"
+      var state = loc.split(', ')[1];
+      var _i = states.indexOf(state);
+      var postal = stateCodes[_i];
+
+      $(function() {
+        $('#postal').append(postal);
+      });
+    </script>
+
+    <script type="text/javascript">
+    var hasCoroner = false;
+    var hasExaminer = true;
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
+      alert(data.geo['system_types']['medical_examiner_system']);
+    });
+    </script>
+
+
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
       <div>
         <h1>Welcome, <strong><%= user.name %></strong></h1>
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
+        <h1>Loc: <strong><%= user.location.name %></strong></h1>
+        <h1>Short code: <strong id="postal"></strong></h1>
         <p class="tagline">
           This is your app
           <a href="<%= app.link %>" target="_top"><%= app.name %></a>
@@ -162,16 +227,16 @@
       </div>
       <% } else { %>
       <div>
-        <h1>Welcome</h1>
+<<<<<<< HEAD
+        <!--<h1>Welcome</h1>-->
         <div class="fb-login-button" data-scope="user_likes,user_photos"></div>
+=======
+        <h1>Welcome</h1>
+        <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location"></div>
+>>>>>>> 51a890fa1d13ab904eeaf4e4418874c570bc3e61
       </div>
       <% } %>
     </header>
-
-    <section id="get-started">
-      <p>Welcome to your Facebook app, running on <span>heroku</span>!</p>
-      <a href="https://devcenter.heroku.com/articles/facebook" target="_top" class="button">Learn How to Edit This App</a>
-    </section>
 
     <% if (user) { %>
 
@@ -235,33 +300,27 @@
 
     <% } %>
 
-    <section id="guides" class="clearfix">
-      <h1>Learn More About Heroku &amp; Facebook Apps</h1>
-      <ul>
-        <li>
-          <a href="https://www.heroku.com/?utm_source=facebook&utm_medium=app&utm_campaign=fb_integration" target="_top" class="icon heroku">Heroku</a>
-          <p>Learn more about <a href="https://www.heroku.com/?utm_source=facebook&utm_medium=app&utm_campaign=fb_integration" target="_top">Heroku</a>, or read developer docs in the Heroku <a href="https://devcenter.heroku.com/" target="_top">Dev Center</a>.</p>
-        </li>
-        <li>
-          <a href="https://developers.facebook.com/docs/guides/web/" target="_top" class="icon websites">Websites</a>
-          <p>
-            Drive growth and engagement on your site with
-            Facebook Login and Social Plugins.
-          </p>
-        </li>
-        <li>
-          <a href="https://developers.facebook.com/docs/guides/mobile/" target="_top" class="icon mobile-apps">Mobile Apps</a>
-          <p>
-            Integrate with our core experience by building apps
-            that operate within Facebook.
-          </p>
-        </li>
-        <li>
-          <a href="https://developers.facebook.com/docs/guides/canvas/" target="_top" class="icon apps-on-facebook">Apps on Facebook</a>
-          <p>Let users find and connect to their friends in mobile apps and games.</p>
-        </li>
-      </ul>
-    </section>
+    <div id="container">
+      <h1>Certified Copy of Record of Death</h1>
+      <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
+      <img src="#" id="profilepic" />
+      <div id="profile">
+	  <% if(user) { %>
+	  <h2 id="name"><%= user.name %></h2>
+	  <b>Age: </b><font id="age"><%= user.user_birthday %></font></br >
+	  <b>Hometown: </b><font id="hometown"><%= user.user_location %></font></br >
+	  <% } else{%>
+	  <h2 id="name">Joanna S. Kao</h2>
+          <b>Age: </b><font id="age">20</font></br >
+          <b>Hometown: </b><font id="hometown">Cambridge, MA</font></br >
+	  <% } %>
+      </div>
+
+      <div id="cod">
+	<b>Cause of Death: </b><font id="cod">Accidental</font><br />
+      </div>
+    </div> <!-- end container -->
+
   </body>
 </html>
 

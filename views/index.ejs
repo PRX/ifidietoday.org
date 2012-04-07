@@ -30,6 +30,13 @@
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
 
     <script type="text/javascript">
+
+    var states = ['Massachusetts'];
+    var stateCodes = ['ma'];
+
+    </script>
+
+    <script type="text/javascript">
       function logResponse(response) {
         if (console && console.log) {
           console.log('The response was', response);
@@ -130,12 +137,68 @@
     </script>
 
     <header class="clearfix">
+      <p id="codTemp"></p>
       <% if (user) { %>
+
+
+    <script type="text/javascript">
+      var birthYear = parseInt("<%= user.birthday %>".split('/')[2]);
+      var year = (new Date()).getFullYear();
+      var age = year - birthYear;
+
+      $(function() {
+        $('#codTemp').append('Leading COD for age: ' + age + '<br>');
+      });
+
+      $.getJSON('/data/deaths.json', function(data) {
+        var causesOfDeathForAge = [];
+
+        $.each(data, function(i, cause) {
+          var low = parseInt(cause['Low age'], 10);
+          var high = parseInt(cause['High age'], 10);
+
+          if (age >= low && age < high) {
+            causesOfDeathForAge.push(cause);
+          }
+        });
+
+        causesOfDeathForAge.sort(function(a, b) {
+          return parseFloat(b['Total deaths']) - parseFloat(a['Total deaths']);
+        });
+
+        $.each(causesOfDeathForAge, function(i, v) {
+          $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      var loc = "<%= user.location.name %>"
+      var state = loc.split(', ')[1];
+      var _i = states.indexOf(state);
+      var postal = stateCodes[_i];
+
+      $(function() {
+        $('#postal').append(postal);
+      });
+    </script>
+
+    <script type="text/javascript">
+    var hasCoroner = false;
+    var hasExaminer = true;
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
+      alert(data.geo['system_types']['medical_examiner_system']);
+    });
+    </script>
+
+
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
       <div>
         <h1>Welcome, <strong><%= user.name %></strong></h1>
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
+        <h1>Loc: <strong><%= user.location.name %></strong></h1>
+        <h1>Short code: <strong id="postal"></strong></h1>
         <p class="tagline">
           This is your app
           <a href="<%= app.link %>" target="_top"><%= app.name %></a>
@@ -164,9 +227,9 @@
       </div>
       <% } else { %>
       <div>
-        <!--<h1>Welcome</h1>-->
-        <div class="fb-login-button" data-scope="user_likes,user_photos"></div>
-      </div>
+        <h1>Welcome</h1>
+        <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location"></div>
+     </div>
       <% } %>
     </header>
 
