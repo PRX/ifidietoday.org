@@ -521,13 +521,8 @@
 
       <div id="cod">
 	<b>Cause of Death: </b><font id="cod">Unintentional Injury</font><br />
-<<<<<<< HEAD
 	<i style="color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
 	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
-=======
-	<i style="font-size:12pt; color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
-	<img src="/images/sig.gif" style="height:100px;"/>
->>>>>>> fee97028305080af98d94d57790f79cbd6ab31e6
 	<p id="coronerME">Coroner/Medical Examiner</p>
       </div>
 
