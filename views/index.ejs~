@@ -13,6 +13,8 @@
     <script type="text/javascript" src="http://use.typekit.com/kih0iop.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+    <script type="text/javascript" src="scripts/Datejs-all/build/date.js"></script>
+
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
     <![endif]-->
@@ -342,7 +344,8 @@
         $('#state').append(state);
         $('#city2').append(city);
         $('#state2').append(state);
-        $('#dod').append(city);
+        $('#dod').append(Date.today());
+        $('#age').append(age);
       });
 
       $(function() {
@@ -499,8 +502,8 @@
 	    <b>State: </b><font id="state2"></font><br />
 	  </span>
 	  <span class="right">
-	    <b>Date of Death: </b><font id="dod">@@</font><br />
-	    <b>Age of Death: </b><font id="age"><%= user.birthday%></font></br>
+	    <b>Date of Death: </b><font id="dod"></font><br />
+	    <b>Age of Death: </b><font id="age"></font></br>
 	  </span>
 	  <% } else{%>
 	  <div class="img-thumbnail"><img src="https://graph.facebook.com/553177043/picture?type=normal" /></div>
@@ -512,7 +515,7 @@
 	  </span>
 	  <span class="right">
 	    <b>Date of Death: </b><font id="dod"></font><br />
-	    <b>Age of Death: </b><font id="age">20</font><br />
+	    <b>Age of Death: </b><font id="age"></font><br />
 	  </span>
 	  <% } %>
       </div>

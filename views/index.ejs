@@ -13,7 +13,7 @@
     <script type="text/javascript" src="http://use.typekit.com/kih0iop.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    <script type="text/javascript" src="scripts/Datejs-all/build/date.js"></script>
+    <script type="text/javascript" src="scripts/Datejs-all/date.js"></script>
 
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
@@ -338,17 +338,15 @@
       var state = loc.split(', ')[1];
       var _i = states.indexOf(state);
       var postal = stateCodes[_i];
+      var dod = Date.today().getMonthName() + " " + Date.today().getDate() + ", " + Date.today().getYear()+1900;
 
       $(function() {
         $('#city').append(city);
         $('#state').append(state);
         $('#city2').append(city);
         $('#state2').append(state);
-        $('#dod').append(Date.today());
-        $('#age').append(age);
-      });
-
-      $(function() {
+        $('#dod').append("2");
+        $('#age').append("3");
         $('#postal').append(postal);
       });
     </script>
@@ -510,8 +508,8 @@
 	  <div id="profile">
 	  <h2 id="name">Joanna S. Kao</h2>
 	  <span class="left">
-            <b>City: </b><font id="city">Cambridge</font><br />
-	    <b>State: </b><font id="state">MA</font><br />
+            <b>City: </b><font id="city"></font><br />
+	    <b>State: </b><font id="state"></font><br />
 	  </span>
 	  <span class="right">
 	    <b>Date of Death: </b><font id="dod"></font><br />
