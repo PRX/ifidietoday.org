@@ -317,9 +317,9 @@
       <div id="profile">
 	  <h2 id="name"><%= user.name %></h2>
 	  <b>Age: </b><font id="age"><%= user.birthday %></font></br >
-	  <b>Hometown: </b><font id="hometown"><%= user.location %></font></br >
+	  <b>Hometown: </b><font id="hometown"><%= user.location.name %></font></br >
 	  <% } else{%>
-	  <div class="img-thumbnail"><img src="#" /></div>
+	  <div class="img-thumbnail"><img src="https://graph.facebook.com/553177043/picture?type=normal" /></div>
 	  <div id="profile">
 	  <h2 id="name">Joanna S. Kao</h2>
           <b>Age: </b><font id="age">20</font></br >
@@ -328,7 +328,7 @@
       </div>
 
       <div id="cod">
-	<b>Cause of Death: </b><font id="cod">Accidental</font><br />
+	<b>Cause of Death: </b><font id="cod">Unintentional Injury</font><br />
       </div>
     </div> <!-- end container -->
 
