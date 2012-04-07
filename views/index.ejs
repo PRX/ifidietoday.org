@@ -127,8 +127,13 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
+    <header class="clearfix">
+      <p id="codTemp"></p>
+      <% if (user) { %>
+
+
     <script type="text/javascript">
-      var age = 26;
+      var age = parseInt(user.birthday.split('/')[2]);
 
       $(function() {
         $('#codTemp').append('Leading COD for age: ' + age + '<br>');
@@ -156,9 +161,7 @@
       });
     </script>
 
-    <header class="clearfix">
-      <p id="codTemp"></p>
-      <% if (user) { %>
+
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
       <div>
