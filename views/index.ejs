@@ -186,7 +186,7 @@
     <script type="text/javascript">
     var hasCoroner = false;
     var hasExaminer = true;
-    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
+    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
       alert(data.geo['system_types']['medical_examiner_system']);
     });
     </script>
@@ -299,13 +299,13 @@
       <h1>Certified Copy of Record of Death</h1>
       <h4>City of <font id="city">Cambridge</font>, State of <font id="state">Massachusetts</font></h4>
       <% if(user) { %>
-      <img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" />
+      <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
       <div id="profile">
 	  <h2 id="name"><%= user.name %></h2>
 	  <b>Age: </b><font id="age"><%= user.birthday %></font></br >
 	  <b>Hometown: </b><font id="hometown"><%= user.location %></font></br >
 	  <% } else{%>
-	  <img src="#" />
+	  <div class="img-thumbnail"><img src="#" /></div>
 	  <div id="profile">
 	  <h2 id="name">Joanna S. Kao</h2>
           <b>Age: </b><font id="age">20</font></br >

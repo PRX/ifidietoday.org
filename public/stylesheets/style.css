@@ -27,12 +27,20 @@ body{
 	
 }
 
-#container img{
+div.img-thumbnail{
 	border-style:solid;
 	border-width:2px;
 	color:black;
 	width:150px;
+	height:175px;
+	line-height:175px;
+	display:inline-block;
+	text-align:center;
 	overflow:both;
+}
+
+div.img-thumbnail img{
+	vertical-align:middle;
 }
 
 #profile{
