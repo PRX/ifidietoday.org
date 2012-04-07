@@ -1,5 +1,5 @@
 *{
-	font-family:Times New Roman, serif;
+	font-family: 'Rokkitt', serif;
 }
 
 body{
@@ -18,7 +18,7 @@ body{
 
 #container h1{
 	text-align:center;
-	font-family: 'Alex Brush', cursive;
+	font-family: 'Cabazon', sans-serif;
 	height:38px;
 }
 
@@ -75,6 +75,7 @@ div.img-thumbnail img{
 #cod{
 	font-size:larger;
 	margin-top:35px;
+	overflow:both;
 }
 
 #cod font{
