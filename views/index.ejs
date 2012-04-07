@@ -360,6 +360,11 @@
     });
     </script>
 
+    <script type="text/javascript">
+      var statefaceKey = stateFace[_i];
+      $('#stateface').append(statefaceKey);
+    </script>
+
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
@@ -368,6 +373,9 @@
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
         <h1>Loc: <strong><%= user.location.name %></strong></h1>
         <h1>Short code: <strong id="postal"></strong></h1>
+
+        <p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface"></p>
+
         <h1 id="systems"></h1>
         <p class="tagline">
           This is your app
@@ -502,9 +510,10 @@
 	<img src="http://www.lmdmedia.com/Image1.gif" style="height:100px;"/>
 	<p id="coronerME">Coroner/Medical Examiner</p>
       </div>
+
+      <p style="font-family: 'StateFaceRegular'; font-size: 100px;">R</p>
     </div> <!-- end top-outline -->
     </div> <!-- end container -->
-
   </body>
 </html>
 
