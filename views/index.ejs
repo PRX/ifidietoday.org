@@ -171,8 +171,8 @@
     </script>
 
     <script type="text/javascript">
-      var location = "<%= user.location.name %>"
-      var state = location.split(', ');
+      var loc = "<%= user.location.name %>"
+      var state = loc.split(', ');
       var _i = states.indexOf(state);
       var postal = stateCodes[_i];
 
