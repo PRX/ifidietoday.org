@@ -113,3 +113,11 @@ p#coronerME{
 	  right: -100;
 	  bottom: -100;
 }
+
+#whodecides p {
+display: block;
+-webkit-margin-before: 1px;
+-webkit-margin-after: 1px;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}

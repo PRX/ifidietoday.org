@@ -528,11 +528,20 @@
       </div>
     </div> <!-- end inner-outline -->
     </div> <! -- end top-outline -->
+    <div id="whodecides">
+      <h3>But who will figure out why you really died?</h3>
       <p style="font-family: 'StateFaceRegular'; font-size: 100px;">R</p>
+    </div> <!-- end whodecides -->
     <svg id="pie"></svg>
     <script type="text/javascript"
             src="/scripts/pie.js"></script>
     </div> <!-- end container -->
+
+    <video width="512" height="288" controls="controls">
+      <source src="/videos/teaser.web.webm" type="video/webm" />
+      <source src="/videos/teaser.web.m4v" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   </body>
 </html>
 
