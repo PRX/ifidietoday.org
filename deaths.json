@@ -117,7 +117,7 @@
     "Low age": "1",
     "High age": "4",
     "Cause of death": "Benign Neoplasms",
-    "Total deaths": "58"
+    "Total deaths": "53"
   },
   {
     "Low age": "5",
@@ -303,43 +303,37 @@
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Unintentional Injury",
-    "Total deaths": "15102"
+    "Total deaths": "14062"
   },
   {
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Malignant Neoplasms",
-    "Total deaths": "12519"
+    "Total deaths": "3659"
   },
   {
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Heart Disease",
-    "Total deaths": "11081"
+    "Total deaths": "3174"
   },
   {
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Suicide",
-    "Total deaths": "8598"
+    "Total deaths": "5320"
   },
   {
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Liver Disease",
-    "Total deaths": "8377"
-  },
-  {
-    "Low age": "25",
-    "High age": "34",
-    "Cause of death": "Cerebrovascular",
-    "Total deaths": "6163"
+    "Total deaths": "459"
   },
   {
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Diabetes Mellitus",
-    "Total deaths": "5725"
+    "Total deaths": "604"
   },
   {
     "Low age": "25",
@@ -351,13 +345,13 @@
     "Low age": "25",
     "High age": "34",
     "Cause of death": "HIV",
-    "Total deaths": "3388"
+    "Total deaths": "881"
   },
   {
     "Low age": "25",
     "High age": "34",
     "Cause of death": "Influenza & Pneumonia",
-    "Total deaths": "2918"
+    "Total deaths": "807"
   },
   {
     "Low age": "35",
