@@ -10,7 +10,7 @@
 }
 
 *{
-	font-family: 'Rokkitt', serif;
+	font-family: 'Courier', serif;
 }
 
 body{
@@ -65,7 +65,6 @@ div.img-thumbnail img{
 	position:relative;
 	width:465px;
 	float:right;
-	font-size:larger;
 }
 
 #profile span.left{
@@ -85,11 +84,15 @@ div.img-thumbnail img{
 }
 
 #cod{
-	font-size:larger;
 	margin-top:35px;
 	overflow:both;
 }
 
 #cod font{
      color:red;
+}
+
+p#coronerME{
+	font-size:smaller;
+	margin-top:0px;
 }
