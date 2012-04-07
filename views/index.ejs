@@ -133,7 +133,9 @@
 
 
     <script type="text/javascript">
-      var age = parseInt("<%= user.birthday %>".split('/')[2]);
+      var birthYear = parseInt("<%= user.birthday %>".split('/')[2]);
+      var year = (new Date()).getFullYear();
+      var age = year - birthYear;
 
       $(function() {
         $('#codTemp').append('Leading COD for age: ' + age + '<br>');
