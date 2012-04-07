@@ -385,7 +385,7 @@
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
-      <div>
+     <!-- <div>
         <h1>Welcome, <strong><%= user.name %></strong></h1>
         <h1>Birthday: <strong><%= user.birthday %></strong></h1>
         <h1>Loc: <strong><%= user.location.name %></strong></h1>
@@ -419,7 +419,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <% } else { %>
       <div>
         <!--<h1>Welcome</h1>-->
@@ -541,6 +541,11 @@
       </div>
     </div> <!-- end inner-outline -->
     </div> <! -- end top-outline -->
+      <h3>Other probable deaths</h3>
+    <svg id="pie"></svg>
+    <script type="text/javascript"
+            src="/scripts/pie.js"></script>
+
     <div id="whodecides">
       <h3>But who will figure out why you really died?</h3>
       <table>
@@ -558,9 +563,6 @@
       </tr>
       </table>
     </div> <!-- end whodecides -->
-    <svg id="pie"></svg>
-    <script type="text/javascript"
-            src="/scripts/pie.js"></script>
     </div> <!-- end container -->
 
     <video width="512" height="288" controls="controls">
