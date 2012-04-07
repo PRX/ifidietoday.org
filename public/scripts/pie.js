@@ -9,8 +9,8 @@ var piefy = function() {
 		    return age >= parseInt(d["Low age"]) && age < parseInt(d["High age"]) })
 	    
 	    var total_deaths = _.reduce(data, function(memo, d) { return memo + parseInt(d["Total deaths"]) }, 0)
-	    var w = 260,                        
-	    h = 260,                            
+	    var w = 300,                        
+	    h = 300,                            
 	    r = Math.min(w, h) / 2 - 15,
 	    color = d3.scale.category20(),
 	    arc = d3.svg.arc().innerRadius(0).outerRadius(r);
@@ -37,7 +37,8 @@ var piefy = function() {
 	    .attr("d", arc)
 
 	    arcs.append("text")
-	    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+	    .attr("transform", function(d) { 
+		    return "translate(" + arc.centroid(d) + ")"; })
 	    .attr("dy", ".35em")
 	    .attr("text-anchor", "middle")
 	    .text(function(d, i) { return d.data["Cause of death"];  })
