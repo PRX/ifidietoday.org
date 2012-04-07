@@ -153,8 +153,6 @@
         $.each(causesOfDeathForAge, function(i, v) {
           $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
         });
-
-        // alert(causesOfDeathForAge[0]['Cause of death']);
       });
     </script>
 
@@ -195,7 +193,7 @@
       <% } else { %>
       <div>
         <h1>Welcome</h1>
-        <div class="fb-login-button" data-scope="user_likes,user_photos"></div>
+        <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location"></div>
       </div>
       <% } %>
     </header>
