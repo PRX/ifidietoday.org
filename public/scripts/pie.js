@@ -3,6 +3,7 @@ var computeProb = function(datum, total) {
 }
 
 var piefy = function() {
+    var age = parseInt($('#age').text())
     d3.json('/data/deaths.json', function(data) {
 	    data = _.filter(data, function(d){ // filter data by age
 		    return age >= parseInt(d["Low age"]) && age < parseInt(d["High age"]) })
