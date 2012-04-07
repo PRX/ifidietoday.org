@@ -308,7 +308,7 @@
       var age = year - birthYear;
 
       $(function() {
-        $('#codTemp').append('Leading COD for age: ' + age + '<br>');
+        /*$('#codTemp').append('Leading COD for age: ' + age + '<br>');*/
       });
 
       $.getJSON('/data/deaths.json', function(data) {
@@ -328,7 +328,7 @@
         });
 
         $.each(causesOfDeathForAge, function(i, v) {
-          $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
+          /*$('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');*/
         });
 
         $('#cod2').append(causesOfDeathForAge[0]['Cause of death']);
@@ -582,7 +582,6 @@
     </section>-->
 
     <% } %>
-
   </body>
 </html>
 
