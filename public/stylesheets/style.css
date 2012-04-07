@@ -26,6 +26,7 @@ body{
 	padding:1em;
 	background:#FFF;
 	background-image: url('/images/exclusive_paper.png');
+	position: relative;
 }
 
 #container h1{
@@ -100,4 +101,7 @@ p#coronerME{
 
 #pie {
 	  font-size: 10px;
+	  position: absolute;
+	  right: -100;
+	  bottom: -100;
 }
