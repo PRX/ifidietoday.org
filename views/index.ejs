@@ -190,21 +190,17 @@
     $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
       if (data.geo['system_types']['medical_examiner_system'] != "none") {
         hasExaminer = true;
+        $('#systems').append('has ME');
       }
 
       if (data.geo['system_types']['coroner_system'] != "none") {
         hasCoroner = true;
+        $('#systems').append('has coroner');
       }
 
       if (hasCoroner && hasExaminer) {
         hasBoth = true;
       }
-
-      $(function() {
-        $('#systems').append(hasCoroner);
-        $('#systems').append(hasExaminer);
-        $('#systems').append(hasBoth);
-      });
     });
     </script>
 
