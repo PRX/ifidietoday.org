@@ -19,7 +19,8 @@ body{
 #container h1{
 	text-align:center;
 	font-family: 'Cabazon', sans-serif;
-	height:38px;
+	height:28px;
+	font-size:32pt;
 }
 
 #container h4{
