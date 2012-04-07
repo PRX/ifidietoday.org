@@ -360,18 +360,25 @@
     var hasExaminer = false;
     var hasBoth = false;
     $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
+
+      var _both = "In "+state+", many places have coroners, who decide your cause of death, even though they have no medical training.";
+      var _me = state+" has Medical Examiners.  But there no national standards for competence that Medical Examiners have to meet.";
+      var _cor = state+" has coroners who decide your cause of death, even though they have no medical training.";
+
+
       if (data.geo['system_types']['medical_examiner_system'] != "none") {
         hasExaminer = true;
-        $('#systems').append('has ME');
+        $('#systemForState').append(_me);
       }
 
       if (data.geo['system_types']['coroner_system'] != "none") {
         hasCoroner = true;
-        $('#systems').append('has coroner');
+        $('#systemForState').append(_cor);
       }
 
       if (hasCoroner && hasExaminer) {
         hasBoth = true;
+        $('#systemForState').append(_both);
       }
     });
     </script>
@@ -386,41 +393,7 @@
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
-     <!-- <div>
-        <h1>Welcome, <strong><%= user.name %></strong></h1>
-        <h1>Birthday: <strong><%= user.birthday %></strong></h1>
-        <h1>Loc: <strong><%= user.location.name %></strong></h1>
-        <h1>Short code: <strong id="postal"></strong></h1>
-
-        <p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface"></p>
-
-        <h1 id="systems"></h1>
-        <p class="tagline">
-          This is your app
-          <a href="<%= app.link %>" target="_top"><%= app.name %></a>
-        </p>
-
-        <div id="share-app">
-          <p>Share your app:</p>
-          <ul>
-            <li>
-              <a href="#" class="facebook-button" id="postToWall" data-url="<%= url() %>">
-                <span class="plus">Post to Wall</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="facebook-button speech-bubble" id="sendToFriends" data-url="<%= url() %>">
-                <span class="speech-bubble">Send Message</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Test this awesome app">
-                <span class="apprequests">Send Requests</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
+  
       <% } else { %>
       <div style="width: 720px; height: 405px; margin: 0 auto; position: relative;">
         <div style="width: 720px; height: 405px; margin: 0 auto;">
@@ -490,7 +463,7 @@
 
     <div style="padding: 13px 0;">
       <b>Share on Facebook: </b>
-      <div style="display: inline;" class="fb-send" data-href="http://ifidietoday.org" data-font="lucida grande"></div>
+      <div class="fb-send" data-href="http://ifidietoday.org" data-font="lucida grande"></div>
     </div>
       <h3>Other probable deaths</h3>
     <svg id="pie"></svg>
@@ -501,26 +474,20 @@
       <h3>But who will figure out why you really died?</h3>
       <table>
       <tr>
-  <td><p style="font-family: 'StateFaceRegular'; font-size: 100px;">R</p></td>
-  <td><p>In California, many places have coroners, who decide your cause of death, even though they have no medical training.</p></td>
-      </tr>
-      <tr>
-  <td><p style="font-family: 'StateFaceRegular'; font-size:100px;">s</p></td>
-  <td><p>Virginia has Medical Examiners.  But there no national standards for competence that Medical Examiners have to meet.</p></td>
-      </tr>
-      <tr>
-  <td><p style="font-family: 'StateFaceRegular'; font-size:100px;">g</p></td>
-  <td><p>Nevada has coroners who decide your cause of death, even though they have no medical training.</p></td>
+  <td><p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface">R</p></td>
+  <td><p id="systemForState"></p></td>
       </tr>
       </table>
-    </div> <!-- end whodecides -->
-    </div> <!-- end container -->
 
     <video width="512" height="288" controls="controls">
       <source src="/videos/teaser.web.webm" type="video/webm" />
       <source src="/videos/teaser.web.m4v" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+
+    </div> <!-- end whodecides -->
+  </div> <!-- end container -->
+
 
 
     <% } %>
