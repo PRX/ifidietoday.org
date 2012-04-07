@@ -36,11 +36,12 @@ div.img-thumbnail{
 	line-height:175px;
 	display:inline-block;
 	text-align:center;
-	overflow:both;
+	overflow:hidden;
 }
 
 div.img-thumbnail img{
 	vertical-align:middle;
+	width:100%;
 }
 
 #profile{

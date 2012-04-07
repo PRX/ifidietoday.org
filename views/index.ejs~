@@ -185,11 +185,6 @@
 
     <script type="text/javascript">
     var hasCoroner = false;
-<<<<<<< HEAD
-    var hasExaminer = true;
-    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json', function(data) {
-      alert(data.geo['system_types']['medical_examiner_system']);
-=======
     var hasExaminer = false;
     var hasBoth = false;
     $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
@@ -206,7 +201,6 @@
       if (hasCoroner && hasExaminer) {
         hasBoth = true;
       }
->>>>>>> be9e2c33bf1d5419e736d6b16a5d3c8b0e66e24f
     });
     </script>
 
