@@ -1,0 +1,60 @@
+*{
+	font-family:Times New Roman, serif;
+}
+
+body{
+	background:#151B26;
+}
+
+#container{
+	width:960px;
+	width:680px;
+	margin-left:auto;
+	margin-right:auto;	
+	border:1px solid #252E40;
+	padding:0 2em 2em 2em;
+	background:#FFF;
+}
+
+#container h1{
+	text-align:center;
+	font-family: 'Alex Brush', cursive;
+	height:38px;
+}
+
+#container h4{
+	text-align:center;
+	
+}
+
+#container img{
+	border-style:solid;
+	border-width:2px;
+	color:black;
+	width:150px;
+	overflow:both;
+}
+
+#profile{
+	position:relative;
+	width:500px;
+	float:right;
+	font-size:larger;
+}
+
+#profile font{
+	text-decoration:underline;
+}
+
+#profile h2{
+	font-size:36px;
+}
+
+#cod{
+	font-size:larger;
+	margin-top:35px;
+}
+
+#cod font{
+     color:red;
+}
