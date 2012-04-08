@@ -508,9 +508,9 @@
 	    <b>Age of Death: </b><font id="age"></font></br>
 	  </span>
 	  <% } else{%>
-	  <div class="img-thumbnail"><img src="https://graph.facebook.com/553177043/picture?type=normal" /></div>
+	  <div class="img-thumbnail"><img src="#" /></div>
 	  <div id="profile">
-	  <h2 id="name">Joanna S. Kao</h2>
+	  <h2 id="name"></h2>
 	  <span class="left">
             <b>City: </b><font id="city"></font><br />
 	    <b>State: </b><font id="state"></font><br />

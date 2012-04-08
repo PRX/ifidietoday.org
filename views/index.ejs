@@ -307,7 +307,7 @@
       var age = year - birthYear;
 
       $(function() {
-        $('#codTemp').append('Leading COD for age: ' + age + '<br>');
+        /*$('#codTemp').append('Leading COD for age: ' + age + '<br>');*/
       });
 
       $.getJSON('/data/deaths.json', function(data) {
@@ -327,7 +327,7 @@
         });
 
         $.each(causesOfDeathForAge, function(i, v) {
-          $('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');
+          /*$('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');*/
         });
 
         $('#cod2').append(causesOfDeathForAge[0]['Cause of death']);
@@ -508,7 +508,7 @@
 	    <b>Age of Death: </b><font id="age"></font></br>
 	  </span>
 	  <% } else{%>
-	  <div class="img-thumbnail"><img src="https://graph.facebook.com/553177043/picture?type=normal" /></div>
+	  <div class="img-thumbnail"><img src="#" /></div>
 	  <div id="profile">
 	  <h2 id="name"></h2>
 	  <span class="left">
