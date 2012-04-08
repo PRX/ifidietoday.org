@@ -9,8 +9,8 @@ var piefy = function() {
 		    return age >= parseInt(d["Low age"]) && age < parseInt(d["High age"]) })
 	    
 	    var total_deaths = _.reduce(data, function(memo, d) { return memo + parseInt(d["Total deaths"]) }, 0)
-	    var w = 400,                        
-	    h = 400,                            
+	    var w = 200,                        
+	    h = 200,                            
 	    r = Math.min(w, h) / 2 - 15,
 	    color = d3.scale.category20(),
 	    arc = d3.svg.arc().innerRadius(0).outerRadius(r);
