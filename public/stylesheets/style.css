@@ -110,6 +110,14 @@ p#coronerME{
 #pie {
 	  font-size: 10px;
 	  position: absolute;
-	  right: -300px;
-	  bottom: 300px;
+	  right: -300;
+	  bottom: 300;
+}
+
+#whodecides p {
+display: block;
+-webkit-margin-before: 1px;
+-webkit-margin-after: 1px;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
 }
