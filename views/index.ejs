@@ -369,14 +369,10 @@
       if (data.geo['system_types']['medical_examiner_system'] != "none") {
         hasExaminer = true;
         $('#systemForState').append(_me);
-      }
-
-      if (data.geo['system_types']['coroner_system'] != "none") {
+      } else if (data.geo['system_types']['coroner_system'] != "none") {
         hasCoroner = true;
         $('#systemForState').append(_cor);
-      }
-
-      if (hasCoroner && hasExaminer) {
+      } else if (hasCoroner && hasExaminer) {
         hasBoth = true;
         $('#systemForState').append(_both);
       }
@@ -393,18 +389,18 @@
 
       <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
-  
+
       <% } else { %>
       <div style="width: 720px; height: 405px; margin: 0 auto; position: relative;">
         <div style="width: 720px; height: 405px; margin: 0 auto;">
           <img src="/images/toetag-splash-withalltext.jpg">
         </div>
 
-        <div style="position: absolute; top: 270px; right: 50px;"> 
+        <div style="position: absolute; top: 270px; right: 50px;">
           <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location"></div>
         </div>
       </div>
-        
+
       <% } %>
     </header>
 
