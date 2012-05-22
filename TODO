@@ -2,31 +2,31 @@ Frontline :: If I Die Today :: Functional Requirements
 
 Landing page
 --------------
-* With editable text areas (Headline, Tagline, Description)
-* Call to action that integrates Facebook login
+[•] With editable text areas (Headline, Tagline, Description)
+[•] Call to action that integrates Facebook login
 
 Generic error page
 --------------
-* Background
-* Text paragraph
+[ ] Background
+[ ] Text paragraph
 
 Retrieve Facebook user information
 --------------
-* Provide a transition/loading page while we connect to open graph that displays a video in the background
-* Use the Facebook Open Graph to retrieve (First Name, Last Name, Age, Location (City/State))
-* Catch errors from Facebook Open Graph login/retrieval
-** Provide view that explains that we need that information to create a useful experience
-** Prompt the user to supply their State if none is found in Facebook
-** Prompt the user to supply their Age if none is found in Facebook
+[ ] Provide a transition/loading page while we connect to open graph that displays a video in the background
+[•] Use the Facebook Open Graph to retrieve (First Name, Last Name, Age, Location (City/State))
+[•] Catch errors from Facebook Open Graph login/retrieval
+[•] Provide view that explains that we need that information to create a useful experience
+[•] Prompt the user to supply their State if none is found in Facebook
+[x] Prompt the user to supply their Age if none is found in Facebook
 
 ++
 
 
 Logged in page
 --------------
-* Use http://tympanus.net/Tutorials/ParallaxSlider/ or equivalent to provide 6 modules for Frontline to provide text/imagery
-* Each module should have (Headline, Tagline, Description, Background Image, Chart)
-* Provide an action button that allows the user to post an image and text from If I Die Today to their wall
-* Create a persistent fixed position bottom/top/side area for (Embedded video, Sharing)
-* Provide an action that allows the user to share http://www.ifidietoday.org via Twitter
-* Provide an location for an embedded video from YouTube
+[ ] Use http://tympanus.net/Tutorials/ParallaxSlider/ or equivalent to provide 6 modules for Frontline to provide text/imagery
+[ ] Each module should have (Headline, Tagline, Description, Background Image, Chart)
+[ ] Provide an action button that allows the user to post an image and text from If I Die Today to their wall
+[ ] Create a persistent fixed position bottom/top/side area for (Embedded video, Sharing)
+[ ] Provide an action that allows the user to share http://www.ifidietoday.org via Twitter
+[ ] Provide an location for an embedded video from YouTube
