@@ -10,10 +10,13 @@
     <!--<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">-->
     <link rel="stylesheet" href="stylesheets/style.css" />
 
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
     <script type="text/javascript" src="http://use.typekit.com/kih0iop.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    <script type="text/javascript" src="scripts/Datejs-all/date.js"></script>
+    <script type="text/javascript" src="scripts/date.js/1.0-alpha1.js"></script>
 
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
@@ -32,9 +35,9 @@
     <meta property="og:description" content="A Project inspired by Post Mortem, a collaborative initiative by FRONTLINE, ProPublica and NPR on Death Investigation in America." />
     <meta property="fb:app_id" content="<%= app.id %>" />
 
-    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/underscore-min.js"></script>
     <script type="text/javascript" src="/scripts/d3.v2.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
 
     <script type="text/javascript">
 
@@ -263,6 +266,7 @@
   <body>
     <div id="fb-root"></div>
     <script type="text/javascript">
+
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '<%= app.id %>', // App ID
@@ -300,94 +304,198 @@
     <header class="clearfix">
       <p id="codTemp"></p>
       <% if (user) { %>
+        <% if ((user.location && user.location.name) || (cookies.location && cookies.location != '')) { %>
+          <script type="text/javascript">
+            var birthYear = parseInt("<%= user.birthday %>".split('/')[2]);
+            var year = (new Date()).getFullYear();
+            var age = year - birthYear;
+
+            $(function() {
+              /*$('#codTemp').append('Leading COD for age: ' + age + '<br>');*/
+            });
+
+            $.getJSON('/data/deaths.json', function(data) {
+              var causesOfDeathForAge = [];
+
+              $.each(data, function(i, cause) {
+                var low = parseInt(cause['Low age'], 10);
+                var high = parseInt(cause['High age'], 10);
+
+                if (age >= low && age < high) {
+                  causesOfDeathForAge.push(cause);
+                }
+              });
+
+              causesOfDeathForAge.sort(function(a, b) {
+                return parseFloat(b['Total deaths']) - parseFloat(a['Total deaths']);
+              });
+
+              $.each(causesOfDeathForAge, function(i, v) {
+                /*$('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');*/
+              });
+
+              $('#cod2').append(causesOfDeathForAge[0]['Cause of death']);
+            });
+          </script>
+
+          <script type="text/javascript">
+            if ($.cookie('location')) {
+              var loc = $.cookie('location')
+              var city = loc.split(', ')[0];
+              var state = loc.split(', ')[1];
+              var _i = states.indexOf(state);
+              var postal = stateCodes[_i];
+            } else {
+              <% if (user.location && user.location.name) { %>
+              var loc = "<%= user.location.name %>"
+              var city = loc.split(', ')[0];
+              var state = loc.split(', ')[1];
+              var _i = states.indexOf(state);
+              var postal = stateCodes[_i];
+              <% } %>
+            }
+            var curryear = parseInt(Date.today().getYear()) + 1900;
+            var dod = Date.today().getMonthName() + " " + Date.today().getDate() + ", " + curryear;
+
+            $(function() {
+              $('#city').append(city);
+              $('#state').append(state);
+              $('#city2').append(city);
+              $('#state2').append(state);
+              $('#dod').append(dod);
+              $('#age').append(age);
+              $('#postal').append(postal);
+            });
+          </script>
+
+          <script type="text/javascript">
+          var hasCoroner = false;
+          var hasExaminer = false;
+          var hasBoth = false;
+          $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
+
+            var _both = "In "+state+", many places have coroners, who decide your cause of death, even though they have no medical training.";
+            var _me = state+" has Medical Examiners.  But there no national standards for competence that Medical Examiners have to meet.";
+            var _cor = state+" has coroners who decide your cause of death, even though they have no medical training.";
 
 
-    <script type="text/javascript">
-      var birthYear = parseInt("<%= user.birthday %>".split('/')[2]);
-      var year = (new Date()).getFullYear();
-      var age = year - birthYear;
+            if (data.geo['system_types']['medical_examiner_system'] != "none") {
+              hasExaminer = true;
+              $('#systemForState').append(_me);
+            } else if (data.geo['system_types']['coroner_system'] != "none") {
+              hasCoroner = true;
+              $('#systemForState').append(_cor);
+            } else if (hasCoroner && hasExaminer) {
+              hasBoth = true;
+              $('#systemForState').append(_both);
+            }
+          });
+          </script>
 
-      $(function() {
-        /*$('#codTemp').append('Leading COD for age: ' + age + '<br>');*/
-      });
+          <script type="text/javascript">
+            $(function() {
+              var statefaceKey = stateFace[_i];
+              $('#stateface').append(statefaceKey);
+            });
+          </script>
 
-      $.getJSON('/data/deaths.json', function(data) {
-        var causesOfDeathForAge = [];
 
-        $.each(data, function(i, cause) {
-          var low = parseInt(cause['Low age'], 10);
-          var high = parseInt(cause['High age'], 10);
+            <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
-          if (age >= low && age < high) {
-            causesOfDeathForAge.push(cause);
+         <div id="container">
+            <div id="top-outline">
+        <div id="inner-outline">
+            <h1>Certified Copy of Record of Death</h1>
+            <% if(user) { %>
+            <h4>City of <font id="city2"></font>, State of <font id="state2"></font></h4>
+            <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
+            <div id="profile">
+          <h2 id="name"><%= user.name %></h2>
+          <span class="left">
+            <b>City: </b><font id="city"></font><br />
+            <b>State: </b><font id="state"></font><br />
+          </span>
+          <span class="right">
+            <b>Date of Death: </b><font id="dod"></font><br />
+            <b>Age of Death: </b><font id="age"></font></br>
+          </span>
+          <% } else{%>
+          <div class="img-thumbnail"><img src="#" /></div>
+          <div id="profile">
+          <h2 id="name"></h2>
+          <span class="left">
+                  <b>City: </b><font id="city"></font><br />
+            <b>State: </b><font id="state"></font><br />
+          </span>
+          <span class="right">
+            <b>Date of Death: </b><font id="dod"></font><br />
+            <b>Age of Death: </b><font id="age"></font><br />
+          </span>
+          <% } %>
+            </div>
+
+            <div id="cod">
+        <b>Cause of Death: </b><font id="cod2"></font><br />
+        <i style="color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
+        <img src="/images/sig.gif" style="height:100px;"/>
+        <p id="coronerME">Coroner/Medical Examiner</p>
+        <script type="text/javascript">
+          if (hasCoroner && hasExaminer) {
+          $("#coronerME").text("Coroner/Medical Examiner")
           }
-        });
+          else if (hasCoroner){
+          $("#coronerME").text("Coroner")
+          } else {
+          $("#coronerME").text("Medical Examiner")
+          }
+        </script>
 
-        causesOfDeathForAge.sort(function(a, b) {
-          return parseFloat(b['Total deaths']) - parseFloat(a['Total deaths']);
-        });
+            </div>
+          </div> <!-- end inner-outline -->
+          </div> <!-- end outer-outline -->
+          <div style="padding: 13px 0;">
+            <b>Share on Facebook: </b>
+            <div class="fb-send" data-href="http://ifidietoday.org" data-font="lucida grande"></div>
+          </div>
+            <h3>Other probable deaths</h3>
+          <svg id="pie" height=290></svg>
+          <script type="text/javascript"
+                  src="/scripts/pie.js"></script>
 
-        $.each(causesOfDeathForAge, function(i, v) {
-          /*$('#codTemp').append(v['Cause of death'] + ' deaths:' + v['Total deaths'] +'<br>');*/
-        });
+          <div id="whodecides">
+            <h3>But who will figure out why you really died?</h3>
+            <table>
+              <tr>
+                <td><p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface"></p></td>
+                <td><p id="systemForState"></p></td>
+              </tr>
+            </table>
 
-        $('#cod2').append(causesOfDeathForAge[0]['Cause of death']);
-      });
-    </script>
+            <h3>VIEW FRONTLINE'S "POST MORTEM"</h3>
+            <video width="512" height="288" controls="controls">
+              <source src="/videos/teaser.web.webm" type="video/webm" />
+              <source src="/videos/teaser.web.m4v" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
-    <script type="text/javascript">
-      var loc = "<%= user.location.name %>"
-      var city = loc.split(', ')[0];
-      var state = loc.split(', ')[1];
-      var _i = states.indexOf(state);
-      var postal = stateCodes[_i];
-      var curryear = parseInt(Date.today().getYear()) + 1900;
-      var dod = Date.today().getMonthName() + " " + Date.today().getDate() + ", " + curryear;
+          </div> <!-- end whodecides -->
+           <!-- end container -->
 
-      $(function() {
-        $('#city').append(city);
-        $('#state').append(state);
-        $('#city2').append(city);
-        $('#state2').append(state);
-        $('#dod').append(dod);
-        $('#age').append(age);
-        $('#postal').append(postal);
-      });
-    </script>
-
-    <script type="text/javascript">
-    var hasCoroner = false;
-    var hasExaminer = false;
-    var hasBoth = false;
-    $.getJSON('http://projects.propublica.org/forensics/geos/'+postal+'.json?callback=?', function(data) {
-
-      var _both = "In "+state+", many places have coroners, who decide your cause of death, even though they have no medical training.";
-      var _me = state+" has Medical Examiners.  But there no national standards for competence that Medical Examiners have to meet.";
-      var _cor = state+" has coroners who decide your cause of death, even though they have no medical training.";
-
-
-      if (data.geo['system_types']['medical_examiner_system'] != "none") {
-        hasExaminer = true;
-        $('#systemForState').append(_me);
-      } else if (data.geo['system_types']['coroner_system'] != "none") {
-        hasCoroner = true;
-        $('#systemForState').append(_cor);
-      } else if (hasCoroner && hasExaminer) {
-        hasBoth = true;
-        $('#systemForState').append(_both);
-      }
-    });
-    </script>
-
-    <script type="text/javascript">
-      $(function() {
-        var statefaceKey = stateFace[_i];
-        $('#stateface').append(statefaceKey);
-      });
-    </script>
+          </div> <!-- end whodecides -->
+        </div> <!-- end container -->
+        <% } else { %>
+        <input type="text" name="" value="" placeholder="Location" id="getLocation">
+        <input type="submit" name="" value="Submit" id="setLocation">
+        <script>
+          $("#setLocation").click(function(event) {
+            event.preventDefault();
+            $.cookie('location', $('#getLocation').val());
+            window.location = window.location.href;
+          });
+        </script>
+        <% } %>
 
 
-      <p id="picture" style="background-image: url(https://graph.facebook.com/<%= user.id %>/picture?type=normal)"></p>
 
 
       <% } else { %>
@@ -404,93 +512,6 @@
       <% } %>
     </header>
 
-    <% if (user) { %>
-
-    <div id="container">
-      <div id="top-outline">
-  <div id="inner-outline">
-      <h1>Certified Copy of Record of Death</h1>
-      <% if(user) { %>
-      <h4>City of <font id="city2"></font>, State of <font id="state2"></font></h4>
-      <div class="img-thumbnail"><img src="https://graph.facebook.com/<%= user.id %>/picture?type=normal" id="profilepic" /></div>
-      <div id="profile">
-    <h2 id="name"><%= user.name %></h2>
-    <span class="left">
-      <b>City: </b><font id="city"></font><br />
-      <b>State: </b><font id="state"></font><br />
-    </span>
-    <span class="right">
-      <b>Date of Death: </b><font id="dod"></font><br />
-      <b>Age of Death: </b><font id="age"></font></br>
-    </span>
-    <% } else{%>
-    <div class="img-thumbnail"><img src="#" /></div>
-    <div id="profile">
-    <h2 id="name"></h2>
-    <span class="left">
-            <b>City: </b><font id="city"></font><br />
-      <b>State: </b><font id="state"></font><br />
-    </span>
-    <span class="right">
-      <b>Date of Death: </b><font id="dod"></font><br />
-      <b>Age of Death: </b><font id="age"></font><br />
-    </span>
-    <% } %>
-      </div>
-
-      <div id="cod">
-  <b>Cause of Death: </b><font id="cod2"></font><br />
-  <i style="color:#666;">(Based on likeliest cause of death for someone your age)</i><br />
-  <img src="/images/sig.gif" style="height:100px;"/>
-  <p id="coronerME">Coroner/Medical Examiner</p>
-  <script type="text/javascript">
-    if (hasCoroner && hasExaminer) {
-    $("#coronerME").text("Coroner/Medical Examiner")
-    }
-    else if (hasCoroner){
-    $("#coronerME").text("Coroner")
-    } else {
-    $("#coronerME").text("Medical Examiner")
-    }
-  </script>
-
-      </div>
-    </div> <!-- end inner-outline -->
-    </div> <!-- end outer-outline -->
-    <div style="padding: 13px 0;">
-      <b>Share on Facebook: </b>
-      <div class="fb-send" data-href="http://ifidietoday.org" data-font="lucida grande"></div>
-    </div>
-      <h3>Other probable deaths</h3>
-    <svg id="pie" height=290></svg>
-    <script type="text/javascript"
-            src="/scripts/pie.js"></script>
-
-    <div id="whodecides">
-      <h3>But who will figure out why you really died?</h3>
-      <table>
-        <tr>
-          <td><p style="font-family: 'StateFaceRegular'; font-size: 100px;" id="stateface"></p></td>
-          <td><p id="systemForState"></p></td>
-        </tr>
-      </table>
-
-      <h3>VIEW FRONTLINE'S "POST MORTEM"</h3>
-      <video width="512" height="288" controls="controls">
-        <source src="/videos/teaser.web.webm" type="video/webm" />
-        <source src="/videos/teaser.web.m4v" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-    </div> <!-- end whodecides -->
-     <!-- end container -->
-
-    </div> <!-- end whodecides -->
-  </div> <!-- end container -->
-
-
-
-    <% } %>
   </body>
 </html>
 

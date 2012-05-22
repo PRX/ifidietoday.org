@@ -10,9 +10,14 @@ var app = express.createServer(
   express.cookieParser(),
   // set this to a secret value to encrypt session cookies
   express.session({ secret: process.env.SESSION_SECRET || 'secret123' }),
+  // require('faceplate').middleware({
+  //   app_id: process.env.FACEBOOK_APP_ID,
+  //   secret: process.env.FACEBOOK_SECRET,
+  //   scope:  'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'
+  // })
   require('faceplate').middleware({
-    app_id: process.env.FACEBOOK_APP_ID,
-    secret: process.env.FACEBOOK_SECRET,
+    app_id: '224293531011555',
+    secret: '39236af9920153b44a85f78e10a41a31',
     scope:  'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'
   })
 );
@@ -50,7 +55,8 @@ function render_page(req, res) {
         layout:    false,
         req:       req,
         app:       app,
-        user:      user
+        user:      user,
+        cookies: req.cookies
       });
     });
   });
