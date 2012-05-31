@@ -74,7 +74,7 @@ function handle_facebook_request(req, res) {
 
           friends.forEach(function(f) {
             req.facebook.get('/' + f.id, {}, function(ff) {
-              if (ff.location && ff.location.name && ff.location.name.match(/Massachusetts$/)) {
+              if (ff.location && ff.location.name && (ff.location.name.match(/Arkansas|Wisconsin|Ohio|California$/))) {
                 if (filteredFriends.length < 2) {
                   filteredFriends.push(ff);
                 }

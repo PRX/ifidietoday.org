@@ -17,6 +17,7 @@
 
     <title>If I Die Today</title>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/scripts/states.js"></script>
   </head>
 
@@ -58,23 +59,121 @@
     </script>
 
     <% if (!user) { %>
-        <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location,friends_location"></div>
+        <div id="modules" data-page="1">
+          <section>
+            <h1>IF I DIE TODAY </h1>
+            <h2>Will anyone really know what happened?</h2>
+            <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location,friends_location"></div>
+            <p>A project inspired by Post Mortem, a collaborative reporting initiative from FRONTLINE, ProPublica and NPR. Developed by PRX.</p>
+          </section>
+      </div>
     <% } else { %>
         <% if ((user.location && user.location.name) || (cookies.location && cookies.location != '')) { %>
-          <% req.filteredFriends.forEach(function(friend) { %>
-            <li>
-              <a href="https://www.facebook.com/<%= friend.id %>" target="_top">
-                <img src="https://graph.facebook.com/<%= friend.id %>/picture?type=square" alt="<%= friend.name %>">
-                <%= friend.name %>
-                <%= friend.location.name %>
-              </a>
-            </li>
-          <% }); %>
+            <div>
+              <div id="layers">
+                <div id="backgrounds" data-page="1">
+                  <img>
+                  <img>
+                  <img>
+                </div>
+
+                <div id="modules" data-page="1">
+                  <div id="controls">
+                    <a href="#previous">Previous</a>
+                    <a href="#next">Next</a>
+                  </div>
+
+                  <section>
+                    <h1>You are one of the 2.5 million people who died in the U.S. this year.</h1>
+                    <h2><%= user.name %> <%= user.birthday %> - 1/1/2020</h2>
+                    <p>What happened?</p>
+                  </section>
+
+                  <section>
+                    <h1>Death Certificat</h1>
+                    <h2>You died on 1/1/2020 in <%= user.location.name %></h2>
+                    <h2>This is how:</h2>
+                    <ul id='causeOfDeath'>
+                        <li>Drowning</li>
+                        <li>Skull fracture</li>
+                        <li>Internal injuries</li>
+                        <li>Stroke</li>
+                        <li>Drug overdose</li>
+                    </ul>
+
+                    <script>
+                    $(function() {
+                        var len = $('#causeOfDeath').children().length;
+                        var cause = Math.floor((Math.random()*len)+1);
+                        $('#causeOfDeath li:nth-child('+cause+')').css('color', 'red');
+                    });
+                    </script>
+
+                    <h2>Your death is ruled:</h2>
+                    <ul id="meansOfDeath">
+                        <li>Accident</li>
+                        <li>Homicide</li>
+                        <li>Suicide</li>
+                        <li>Natural</li>
+                        <li>Undetermined</li>
+                        <li>Pending</li>
+                    </ul>
+
+                    <script>
+                    $(function() {
+                        var len = $('#meansOfDeath').children().length;
+                        var cause = Math.floor((Math.random()*len)+1);
+                        $('#meansOfDeath li:nth-child('+cause+')').css('color', 'red');
+                    });
+                    </script>
+
+                    <h3>Signed by: Cory Smith, Registered plumber</h3>
+
+                    <h1>Case closed....?</h1>
+                  </section>
+
+                  <section>
+                    <h1>America’s death investigation system is dysfunctional, with few standards, little oversight and mistakes that are literally buried.</h1>
+                    <% req.filteredFriends.forEach(function(friend) { %>
+                        <div>
+                            <img src="https://graph.facebook.com/<%= friend.id %>/picture?type=square" alt="<%= friend.name %>">
+                            <h1><%= friend.name %></h1>
+                            <h2>In <%= friend.location.name %> nullam quis risus eget urna mollis ornare vel eu leo.</h2>
+                        </div>
+                    <% }); %>
+                  </section>
+
+                  <section>
+                    <h1>Messed up facts about death investigations</h1>
+                        <div>
+                            <h1>Dapibus Ridiculus Aenean Condimentum Cras</h1>
+                            <p>Sed posuere consectetur est at lobortis.</p>
+                            <a href="#">Share this story</a>
+                        </div>
+                        <div>
+                            <h1>Dapibus Ridiculus Aenean Condimentum Cras</h1>
+                            <p>Sed posuere consectetur est at lobortis.</p>
+                            <a href="#">Share this story</a>
+                        </div>
+                        <div>
+                            <h1>Dapibus Ridiculus Aenean Condimentum Cras</h1>
+                            <p>Sed posuere consectetur est at lobortis.</p>
+                            <a href="#">Share this story</a>
+                        </div>
+                  </section>
+
+                  <section>
+                      <h1>Watch</h1>
+                      <h1>Share</h1>
+                      <h1>Discuss</h1>
+                  </section>
+                </div>
+              </div>
+            </div>
         <% } else { %>
         <% } %>
     <% } %>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/scripts/jquery.cookie.js"></script>
 
     <script src="/scripts/underscore-min.js"></script>
