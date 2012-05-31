@@ -16,8 +16,8 @@ var app = express.createServer(
   //   scope:  'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'
   // })
   require('faceplate').middleware({
-    app_id: '224293531011555',
-    secret: '39236af9920153b44a85f78e10a41a31',
+    app_id: '371339856249007',
+    secret: '37cebdf34b2c6389aca7293386ce6860',
     scope:  'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'
   })
 );
@@ -51,7 +51,7 @@ app.dynamicHelpers({
 function render_page(req, res) {
   req.facebook.app(function(app) {
     req.facebook.me(function(user) {
-      res.render('index.ejs', {
+      res.render('index2.html.ejs', {
         layout:    false,
         req:       req,
         app:       app,
@@ -63,36 +63,26 @@ function render_page(req, res) {
 }
 
 function handle_facebook_request(req, res) {
-
   // if the user is logged in
   if (req.facebook.token) {
-
     async.parallel([
       function(cb) {
         // query 4 friends and send them to the socket for this socket id
-        req.facebook.get('/me/friends', { limit: 4 }, function(friends) {
-          req.friends = friends;
-          cb();
-        });
-      },
-      function(cb) {
-        // query 16 photos and send them to the socket for this socket id
-        req.facebook.get('/me/photos', { limit: 16 }, function(photos) {
-          req.photos = photos;
-          cb();
-        });
-      },
-      function(cb) {
-        // query 4 likes and send them to the socket for this socket id
-        req.facebook.get('/me/likes', { limit: 4 }, function(likes) {
-          req.likes = likes;
-          cb();
-        });
-      },
-      function(cb) {
-        // use fql to get a list of my friends that are using this app
-        req.facebook.fql('SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1', function(result) {
-          req.friends_using_app = result;
+        req.facebook.get('/me/friends', { limit: 100 }, function(friends) {
+
+          var filteredFriends = [];
+
+          friends.forEach(function(f) {
+            req.facebook.get('/' + f.id, {}, function(ff) {
+              if (ff.location && ff.location.name && ff.location.name.match(/Massachusetts$/)) {
+                if (filteredFriends.length < 2) {
+                  filteredFriends.push(ff);
+                }
+              }
+            });
+          });
+
+          req.filteredFriends = filteredFriends;
           cb();
         });
       }

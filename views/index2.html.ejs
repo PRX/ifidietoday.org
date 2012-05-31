@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+
+    <meta property="og:title" content="<%= app.name %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= url() %>" />
+    <meta property="og:image" content="<%= url('/logo.png') %>" />
+    <meta property="og:site_name" content="If I Die Today" />
+    <meta property="og:description" content="A Project inspired by Post Mortem, a collaborative initiative by FRONTLINE, ProPublica and NPR on Death Investigation in America." />
+    <meta property="fb:app_id" content="<%= app.id %>" />
+
+    <link rel="stylesheet" href="/stylesheets/root.css">
+    <link rel="stylesheet" href="/stylesheets/module.css">
+
+    <title>If I Die Today</title>
+
+    <script src="/scripts/states.js"></script>
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '<%= app.id %>', // App ID
+          channelUrl : '<%= url_no_scheme('/channel.html') %>', // Channel File
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true // parse XFBML
+        });
+
+        // Listen to the auth.login which will be called when the user logs in
+        // using the Login button
+        FB.Event.subscribe('auth.login', function(response) {
+          // We want to reload the page now so PHP can read the cookie that the
+          // Javascript SDK sat. But we don't want to use
+          // window.location.reload() because if this is in a canvas there was a
+          // post made to this page and a reload will trigger a message to the
+          // user asking if they want to send data again.
+          window.location = window.location;
+        });
+
+        FB.Canvas.setAutoGrow();
+      };
+
+      // Load the SDK Asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <% if (!user) { %>
+        <div class="fb-login-button" data-scope="user_likes,user_photos,user_photo_video_tags,user_birthday,user_location,friends_location"></div>
+    <% } else { %>
+        <% if ((user.location && user.location.name) || (cookies.location && cookies.location != '')) { %>
+          <% req.filteredFriends.forEach(function(friend) { %>
+            <li>
+              <a href="https://www.facebook.com/<%= friend.id %>" target="_top">
+                <img src="https://graph.facebook.com/<%= friend.id %>/picture?type=square" alt="<%= friend.name %>">
+                <%= friend.name %>
+                <%= friend.location.name %>
+              </a>
+            </li>
+          <% }); %>
+        <% } else { %>
+        <% } %>
+    <% } %>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+
+    <script src="/scripts/underscore-min.js"></script>
+
+    <script src="/scripts/date.js/1.0-alpha1.js"></script>
+
+    <script src="/scripts/application.js"></script>
+
+<!--    <script src="http://use.typekit.com/kih0iop.js"></script> -->
+    <script>try{Typekit.load();}catch(e){}</script>
+  </body>
+</html>
