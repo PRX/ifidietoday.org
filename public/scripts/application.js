@@ -30,6 +30,8 @@ $(function() {
   var birthdayStr = "";
 
   function populate() {
+    $('body').removeClass('form').removeClass('landing').addClass('show');
+
     $('.birthyear').html(birthdayStr.split('/')[2]);
     $('.fbProfileImage').attr('src', 'https://graph.facebook.com/'+fbUser.id+'/picture?type=normal');
     $('#cert .header').html('State of '+states[stateCodes.indexOf(locationStr.split(',')[1].toLowerCase().replace(' ', ''))]+' - Department of Health');
@@ -50,7 +52,11 @@ $(function() {
           birthdayStr = response.birthday;
 
           if (response.location) {
-            locationStr = response.location;
+            var loc = response.location.name;;
+            var _city = loc.split(',')[0];
+            var _stateAbr = stateCodes[states.indexOf(loc.split(',')[1].replace(' ',''))].toUpperCase();
+
+            locationStr = _city + ',' + _stateAbr;
 
             populate();
           } else {
@@ -68,8 +74,6 @@ $(function() {
     e.preventDefault();
 
     locationStr = $('#city').val() + ', ' + $('#state').val();
-    $('body').removeClass('form').removeClass('landing').addClass('show');
-
     populate();
   })
 

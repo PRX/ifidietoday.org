@@ -1,4 +1,15 @@
 @font-face {
+   font-family: 'StateFaceRegular';
+   src: url('/fonts/webfont/stateface-regular-webfont.eot');
+   src: url('/fonts/webfont/stateface-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/webfont/stateface-regular-webfont.woff') format('woff'),
+        url('/fonts/webfont/stateface-regular-webfont.ttf') format('truetype'),
+        url('/fonts/webfont/stateface-regular-webfont.svg#StateFaceRegular') format('svg');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
   font-family: 'CarbonType';
   src: url('/fonts/carbontype.ttf');
 }
@@ -411,3 +422,76 @@ body.show #show {
 }
 
 
+.slide3 h1 {
+  background: #000;
+  font-family: 'Chivo';
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
+  display: inline-block;
+  float: left;
+  padding: 3px 5px;
+  clear: both;
+}
+
+.slide3 .friend-facts {
+  clear: both;
+  list-style: none;
+  padding-top: 50px;
+}
+
+.slide3 .friend-facts li {
+  background: rgba(18, 33, 0, 0.8);
+  border: 1px solid black;
+  width: 280px;
+  padding: 16px;
+  float: left;
+  margin: 4px;
+  position: relative;
+}
+
+.slide3 .friend-facts li h2 {
+  font-family: 'CarbonType';
+  color: white;
+  font-size: 13px;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+
+}
+
+.slide3 .friend-facts li h3 {
+  color: rgba(18, 33, 0, 1);
+  font-family: 'StateFaceRegular';
+  text-shadow: 0px 0px 4px #4f5747;
+  font-size: 110px;
+  line-height: 75px;
+  position: absolute;
+  top: -70px;
+  right: 0;
+}
+
+.slide3 .friend-facts li img {
+  border: 5px solid black;
+  border-right-width: 10px;
+  border-bottom-width: 10px;
+  min-height: 80px;
+}
+
+.slide3 .friend-facts li p {
+  color: #cdc196;
+  font-family: 'Chivo';
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.slide3 .friend-facts li a {
+  display: inline-block;
+  color: black;
+  background: #cdc196;
+  text-transform: uppercase;
+  padding: 7px;
+  text-decoration: none;
+  font-family: 'CarbonType';
+}
