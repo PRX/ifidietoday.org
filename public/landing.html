@@ -36,7 +36,7 @@
       <form>
         <input type="text" name="city" autocomplete="off" placeholder="(Boston)" id="city">
         <input type="text" name="state" autocomplete="off" placeholder="(MA)" id="state">
-        <h3>1986-05-05</h3>
+        <h3 id="birthday"></h3>
         <input type="submit" name="" value="Continue" id="submit">
       </form>
       <div class="blackout"></div>
@@ -61,8 +61,11 @@
             <h1>of the 2.5 million</h1>
             <h1>people who died</h1>
             <h1>in the U.S. this year.</h1>
-            <h2>1986-2012</h2>
+            <h2><span class="birthyear">1986</span>-2012</h2>
             <h3>What happened?</h3>
+            <div class="fbProfileImageContainer">
+              <img src="" alt="" class="fbProfileImage">
+            </div>
           </section>
 
           <section>
@@ -94,6 +97,8 @@
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/scripts/date.js/1.0-alpha1.js"></script>
+
     <script src="/scripts/application.js"></script>
   </body>
 </html>

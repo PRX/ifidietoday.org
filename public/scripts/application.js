@@ -25,26 +25,44 @@ window.fbAsyncInit = function() {
 $(function() {
   var numModules = $('#modules section').length;
 
+  var fbUserId = "";
+  var locationStr = "";
+  var birthdayStr = "";
+
+  function populate() {
+    $('.birthyear').html(birthdayStr.split('/')[2]);
+    $('.fbProfileImage').attr('src', 'https://graph.facebook.com/'+fbUserId+'/picture?type=normal')
+  }
+
   $('a.facebook').click(function() {
     FB.login(function(response) {
       if (response.authResponse) {
         FB.api('/me', function(response) {
+          fbUserId = response.id;
+          birthdayStr = response.birthday;
+
           if (response.location) {
-            alert('Yes locaction');
+            locationStr = response.location;
+
+            populate();
           } else {
+            $('#birthday').html(response.birthday);
             $('body').addClass('form');
           }
         });
       } else {
         alert('Did not get authorization');
       }
-    }, {perms:'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'});
+    }, {scope:'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'});
   });
 
   $('#submit').click(function(e) {
     e.preventDefault();
 
+    locationStr = $('#city').val() + ', ' + $('#state').val();
     $('body').removeClass('form').removeClass('landing').addClass('show');
+
+    populate();
   })
 
   $('a[href="#next"]').each(function() {

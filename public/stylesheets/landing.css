@@ -11,13 +11,13 @@
 
 @-webkit-keyframes sway {
   0%  {
-    -webkit-transform:rotate(2deg)
+    -webkit-transform:rotate(2deg);
   }
   50% {
-    -webkit-transform:rotate(-1deg)
+    -webkit-transform:rotate(-1deg);
   }
   100% {
-    -webkit-transform:rotate(2deg)
+    -webkit-transform:rotate(2deg);
   }
 }
 
@@ -337,4 +337,18 @@ body.show #show {
   text-transform: uppercase;
   font-weight: normal;
   padding: 10px 0 0 0;
+}
+
+
+.fbProfileImageContainer {
+  border: 5px solid black;
+  border-right-width: 10px;
+  border-bottom-width: 10px;
+  display: inline-block;
+  background: black;
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  margin-left: -470px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
