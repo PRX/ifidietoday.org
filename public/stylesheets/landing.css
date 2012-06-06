@@ -21,7 +21,7 @@
   }
 }
 
-body.landing {
+.landing {
   background: url('/images/landing/background.png') #120004;
   background-position: 50% top;
   background-repeat: no-repeat;
@@ -66,3 +66,72 @@ body.landing {
   margin-left: 200px;
   -webkit-animation: sway 4s infinite;
 }
+
+.landing form {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -170px 0 0 -191px;
+  width: 382px;
+  height: 200px;
+  background: url('/images/landing/form.png');
+  z-index: 25;
+}
+.landing.form form { display: block; }
+
+.landing form input, .landing form h3 {
+  border: 0;
+  background: none;
+  outline: none;
+  font-family: 'CarbonType';
+  font-size: 22px;
+}
+
+.landing form input[name='city'] {
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  width: 260px;
+}
+
+.landing form input[name='state'] {
+  position: absolute;
+  top: 70px;
+  left: 300px;
+  width: 260px;
+}
+
+.landing form h3 {
+  position: absolute;
+  top: 124px;
+  left: 20px;
+}
+
+.landing form input[type='submit'] {
+  font-family: 'Chivo';
+  font-weight: bold;
+  font-size: 36px;
+  color: #d90a00;
+  position: absolute;
+  top: 195px;
+  left: 90px;
+  cursor: pointer;
+}
+
+.landing form input[type='submit']:hover {
+  color: #ff0c00;
+}
+
+.landing .blackout {
+  display: none;
+  z-index: 20;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.8;
+}
+.landing.form .blackout { display: block; }
