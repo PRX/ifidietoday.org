@@ -179,6 +179,33 @@ body.show #show {
   display: block;
 }
 
+#show > footer {
+  position: absolute;
+  background: black;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+}
+
+#show > footer p {
+  color: white;
+  font-family: 'CarbonType';
+  font-size: 13px;
+  width: 356px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -375px;
+}
+
+#show > footer img {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: 40px;
+}
 
 #layers {
   position: absolute;
@@ -259,7 +286,7 @@ body.show #show {
   #modules #controls a {
     color: white;
     font-family: 'CarbonType';
-    display: block;
+    display: inline-block;
     padding: 0 60px;
     text-decoration: none;
   }
