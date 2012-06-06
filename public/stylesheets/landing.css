@@ -495,3 +495,59 @@ body.show #show {
   text-decoration: none;
   font-family: 'CarbonType';
 }
+
+
+
+.slide4 .stories {
+  list-style: none;
+}
+
+.slide4 .stories li {
+  background: url('/images/show/tag.png');
+  width: 276px;
+  height: 624px;
+  float: left;
+  margin-top: -100px;
+  position: relative;
+  margin-left: -10px;
+}
+
+.slide4 .stories li:nth-of-type(1) { margin-left: 0; }
+.slide4 .stories li:nth-of-type(2) { -webkit-transform:rotate(3deg); }
+.slide4 .stories li:nth-of-type(3) { -webkit-transform:rotate(-1deg); }
+
+.slide4 .stories li h3 {
+  font-family: 'CarbonType';
+  color: black;
+  font-size: 20px;
+  padding: 160px 14px 0 19px;
+  -webkit-transform:rotate(-1deg);
+}
+
+.slide4 .stories li img {
+  width: 221px;
+  display: inline-block;
+  min-height: 100px;
+  padding: 0 0 0 21px;
+  -webkit-transform:rotate(-1deg);
+}
+
+.slide4 .stories li p {
+  font-family: 'Chivo';
+  font-size: 13px;
+  line-height: 16px;
+  padding: 6px 15px 0 22px;
+  -webkit-transform:rotate(-1deg);
+}
+
+.slide4 .stories li footer {
+  position: absolute;
+  left: 30px;
+  font-family: 'CarbonType';
+  color: black;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: normal;
+  bottom: 27px;
+  -webkit-transform:rotate(-1deg);
+}
