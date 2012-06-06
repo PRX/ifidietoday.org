@@ -22,25 +22,30 @@ window.fbAsyncInit = function() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-$('a.facebook').click(function() {
-  FB.login(function(response) {
-    if (response.authResponse) {
-      FB.api('/me', function(response) {
-        if (response.location) {
-          alert('Yes locaction');
-        } else {
-          $('body').addClass('form');
-        }
-      });
-    } else {
-      alert('Did not get authorization');
-    }
-  }, {perms:'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'});
-});
-
-
 $(function() {
   var numModules = $('#modules section').length;
+
+  $('a.facebook').click(function() {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        FB.api('/me', function(response) {
+          if (response.location) {
+            alert('Yes locaction');
+          } else {
+            $('body').addClass('form');
+          }
+        });
+      } else {
+        alert('Did not get authorization');
+      }
+    }, {perms:'user_likes,user_photos,user_photo_video_tags,user_birthday,user_location'});
+  });
+
+  $('#submit').click(function(e) {
+    e.preventDefault();
+
+    $('body').removeClass('form').removeClass('landing').addClass('show');
+  })
 
   $('a[href="#next"]').each(function() {
     $(this).click(function(ev) {
