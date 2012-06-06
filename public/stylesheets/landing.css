@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'CarbonType';
+  src: url('/fonts/carbontype.ttf');
+}
+
+@font-face {
+  font-family: 'Chivo';
+  font-weight: bold;
+  src: url('/fonts/Chivo-Black.ttf');
+}
+
+@-webkit-keyframes sway {
+  0%  {
+    -webkit-transform:rotate(2deg)
+  }
+  50% {
+    -webkit-transform:rotate(-1deg)
+  }
+  100% {
+    -webkit-transform:rotate(2deg)
+  }
+}
+
+body.landing {
+  background: url('/images/landing/background.png') #120004;
+  background-position: 50% top;
+  background-repeat: no-repeat;
+}
+
+.landing header hgroup h2 {
+  font-size: 20px;
+  color: white;
+  font-family: 'Chivo';
+  text-transform: uppercase;
+  background: black;
+  padding: 10px;
+  position: absolute;
+  width: 487px;
+  left: 50%;
+  top: 262px;
+  margin-left: -347px;
+}
+
+.landing header hgroup h3 {
+  font-size: 13px;
+  line-height: 21px;
+  color: black;
+  position: absolute;
+  width: 570px;
+  left: 50%;
+  top: 500px;
+  margin-left: -370px;
+  font-family: 'CarbonType';
+  font-weight: normal;
+}
+
+.landing a.facebook {
+  display: block;
+  position: absolute;
+  width: 124px;
+  height: 562px;
+  background: url('/images/landing/tag.png');
+  text-indent: -9999px;
+  left: 50%;
+  top: 15px;
+  margin-left: 200px;
+  -webkit-animation: sway 4s infinite;
+}
