@@ -25,20 +25,28 @@ window.fbAsyncInit = function() {
 $(function() {
   var numModules = $('#modules section').length;
 
-  var fbUserId = "";
+  var fbUser = "";
   var locationStr = "";
   var birthdayStr = "";
 
   function populate() {
     $('.birthyear').html(birthdayStr.split('/')[2]);
-    $('.fbProfileImage').attr('src', 'https://graph.facebook.com/'+fbUserId+'/picture?type=normal')
+    $('.fbProfileImage').attr('src', 'https://graph.facebook.com/'+fbUser.id+'/picture?type=normal');
+    $('#cert .header').html('State of '+states[stateCodes.indexOf(locationStr.split(',')[1].toLowerCase().replace(' ', ''))]+' - Department of Health');
+    $('#cert .fname').html(fbUser.first_name);
+    $('#cert .lname').html(fbUser.last_name);
+    $('#cert .city').html(locationStr.split(',')[0]);
+    $('#cert .state').html(locationStr.split(',')[1]);
+    $('#cert .date').html(Date.today().getMonthName() + " " + Date.today().getDate() + ", " + (parseInt(Date.today().getYear()) + 1900));
+    $('#cert .cause').html('Adipiscing Quam Tellus');
   }
 
   $('a.facebook').click(function() {
     FB.login(function(response) {
       if (response.authResponse) {
         FB.api('/me', function(response) {
-          fbUserId = response.id;
+          fbUser = response;
+
           birthdayStr = response.birthday;
 
           if (response.location) {

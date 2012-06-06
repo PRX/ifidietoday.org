@@ -347,8 +347,67 @@ body.show #show {
   display: inline-block;
   background: black;
   position: absolute;
-  top: 180px;
+  top: 162px;
   left: 50%;
   margin-left: -470px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
+
+#cert {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 600px;
+  height: 550px;
+  margin-left: -450px;
+}
+
+#cert p {
+  position: absolute;
+  font-family: 'CarbonType';
+  font-size: 20px;
+}
+
+#cert .header {
+  text-align: center;
+  font-family: 'Chivo';
+  font-weight: bold;
+  text-transform: uppercase;
+  top: 43px;
+  left: 0px;
+  width: 100%;
+  margin-left: -26px;
+  font-size: 18px;
+}
+
+#cert .fname {
+  top: 104px;
+  left: 20px;
+}
+
+#cert .lname {
+  top: 104px;
+  left: 300px;
+}
+
+#cert .city {
+  top: 160px;
+  left: 20px;
+}
+
+#cert .state {
+  top: 160px;
+  left: 450px;
+}
+
+#cert .date {
+  top: 222px;
+  left: 20px;
+}
+
+#cert .cause {
+  top: 315px;
+  left: 20px;
+}
+
+
