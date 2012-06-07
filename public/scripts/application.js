@@ -33,15 +33,25 @@ $(function() {
   function populate() {
     $('body').removeClass('form').removeClass('landing').addClass('show');
 
+    var _longState = states[stateCodes.indexOf(locationStr.split(',')[1].toLowerCase().replace(' ', ''))];
+
     $('.birthyear').html(birthdayStr.split('/')[2]);
     $('.fbProfileImage').attr('src', 'https://graph.facebook.com/'+fbUser.id+'/picture?type=normal');
-    $('#cert .header').html('State of '+states[stateCodes.indexOf(locationStr.split(',')[1].toLowerCase().replace(' ', ''))]+' - Department of Health');
+    $('#cert .header').html('State of '+_longState+' - Department of Health');
     $('#cert .fname').html(fbUser.first_name);
     $('#cert .lname').html(fbUser.last_name);
     $('#cert .city').html(locationStr.split(',')[0]);
     $('#cert .state').html(locationStr.split(',')[1]);
     $('#cert .date').html(Date.today().getMonthName() + " " + Date.today().getDate() + ", " + (parseInt(Date.today().getYear()) + 1900));
-    $('#cert .cause').html('Adipiscing Quam Tellus');
+
+
+   var causes = ['drowning', 'skull fracture', 'internal injuries', 'asphyxiation', 'cardiac arrest', 'exsanguination', 'drug overdose', 'stroke'];
+   var cause = causes[Math.floor((Math.random()*causes.length)+1)];
+
+    $('#cert .cause').html(cause);
+
+    var system = friendFacts[_longState]['system'];
+    $('#cert .system').html(system);
   }
 
   function populateFriends() {
@@ -50,7 +60,7 @@ $(function() {
       var _stateface = stateFace[states.indexOf(_state)];
 
       var el = $('.friend-facts li:nth-of-type('+(i+1)+')');
-      $('img', el).attr('src', 'https://graph.facebook.com/'+friend.id+'/picture?type=normal');;
+      $('img', el).attr('src', 'https://graph.facebook.com/'+friend.id+'/picture?type=normal');
       $('a', el).html('Tell ' + friend.first_name);
       $('h2', el).html(friend.location.name.split(',')[1]);
       $('h3', el).html(_stateface);
@@ -62,6 +72,17 @@ $(function() {
 
       $('p', el).html(fact);
     });
+  }
+
+  function populateAnecdotes() {
+    var n = anecdotes.length;
+
+    $('.stories li').each(function(i, el) {
+      $('h3', el).html(anecdotes[i]['title']);
+      $('p', el).html(anecdotes[i]['body']);
+      $('img', el).attr('src', anecdotes[i]['posterURL'])
+    });
+
   }
 
   $('a.facebook').click(function() {
@@ -88,6 +109,8 @@ $(function() {
           fbUser = response;
 
           birthdayStr = response.birthday;
+
+          populateAnecdotes();
 
           if (response.location) {
             var loc = response.location.name;

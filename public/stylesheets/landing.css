@@ -326,6 +326,7 @@ body.show #show {
     text-decoration: none;
     background: url('/images/show/leftarrow.png') top left no-repeat;
     max-width: 150px;
+    min-height: 100px;
     margin-left: 10px;
   }
 
@@ -486,6 +487,18 @@ body.show #show {
 #cert .cause {
   top: 315px;
   left: 20px;
+  text-transform: capitalize;
+}
+
+#cert .system {
+  top: 495px;
+  left: 340px;
+  text-transform: capitalize;
+  font-family: 'Chivo';
+  font-weight: normal;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: right;
 }
 
 
@@ -617,4 +630,22 @@ body.show #show {
   font-weight: normal;
   bottom: 27px;
   -webkit-transform:rotate(-1deg);
+}
+
+.slide4 .stories li footer a:first-child {
+  text-indent: -999px;
+  width: 20px;
+  height: 20px;
+  background: url('/images/show/fb.png');
+  display: inline-block;
+  color: rgba(0,0,0,0);
+}
+
+.slide4 .stories li footer a:last-child {
+  text-indent: -999px;
+  width: 20px;
+  height: 20px;
+  background: url('/images/show/twitter.png');
+  display: inline-block;
+  color: rgba(0,0,0,0);
 }

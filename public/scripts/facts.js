@@ -9,7 +9,11 @@ var friendFacts = {
   },
   'Alaska': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
+  },
+  'Arizona': {
+    fact: '',
+    system: 'county medical examiner'
   },
   'Arkansas': {
     fact: '',
@@ -21,19 +25,19 @@ var friendFacts = {
   },
   'Colorado': {
     fact: '',
-    system: ''
+    system: 'county coroner'
   },
   'Connecticut': {
     fact: '',
-    system: ''
+    system: 'county coroner'
   },
   'Delaware': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Florida': {
     fact: '',
-    system: ''
+    system: 'district medical examiner'
   },
   'Georgia': {
     fact: 'In Georgia, where [NAME] is from, a coroner need only have a high-school education, be at least 25 years old, have no felony convictions and complete a week\'s training course in death investigation. ',
@@ -43,9 +47,17 @@ var friendFacts = {
     fact: '',
     system: ''
   },
+  'Idaho': {
+    fact: '',
+    system: 'county coroner'
+  },
+  'Illinois': {
+    fact: '',
+    system: ''
+  },
   'Indiana': {
     fact: 'In Indiana, where [NAME] lives, an 18-year-old made headlines when she was elected deputy county coroner while still in high school.',
-    system: ''
+    system: 'county coroner'
   },
   'Iowa': {
     fact: '',
@@ -53,7 +65,7 @@ var friendFacts = {
   },
   'Kansas': {
     fact: '',
-    system: ''
+    system: 'district coroner'
   },
   'Kentucky': {
     fact: '',
@@ -61,23 +73,23 @@ var friendFacts = {
   },
   'Louisiana': {
     fact: 'The long-time coroner in Louisiana, where [NAME] lives, has been accused of being too cozy with law enforcment. ',
-    system: ''
+    system: 'county coroner'
   },
   'Maine': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Maryland': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Massachusetts': {
     fact: 'In Massachusetts, where [NAME] lives, the medical examiner\'s office lost track of at least five bodies, misplaced bones and cremated a corpse before police could determine if the person had been murdered.',
-    system: ''
+    system: 'state medical examiner'
   },
   'Michigan': {
     fact: 'In Michigan, where [NAME] lives, one doctor autopsied the body of a bank executive pulled from a lake -- and managed to miss the bullet hole in his neck and the bullet lodged in his jaw.',
-    system: ''
+    system: 'county medical examiner'
   },
   'Minnesota': {
     fact: '',
@@ -97,15 +109,15 @@ var friendFacts = {
   },
   'Nebraska': {
     fact: 'Sometimes the connection between death investigators and law enforcement is a little too cozy, especially in criminal cases. In Nebraska, where [NAME] lives, your coroner could also be your county attorney.',
-    system: ''
+    system: 'county coroner'
   },
   'Nevada': {
     fact: '',
-    system: ''
+    system: 'county coroner'
   },
   'New Hampshire': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'New Jersey': {
     fact: '',
@@ -113,7 +125,7 @@ var friendFacts = {
   },
   'New Mexico': {
     fact: 'While many coroners and medical examiners don\'t even have X-ray machines, New Mexico, where [NAME] lives has a new facility equipped with a full-body CT scanner to help detect hidden injuries.',
-    system: ''
+    system: 'state medical examiner'
   },
   'New York': {
     fact: '',
@@ -121,11 +133,11 @@ var friendFacts = {
   },
   'North Carolina': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'North Dakota': {
     fact: '',
-    system: ''
+    system: 'county coroner'
   },
   'Ohio': {
     fact: '',
@@ -133,11 +145,11 @@ var friendFacts = {
   },
   'Oklahoma': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Oregon': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Pennsylvania': {
     fact: '',
@@ -145,19 +157,19 @@ var friendFacts = {
   },
   'Rhode Island': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'South Carolina': {
     fact: 'A blind coroner? One county in [NAME]\'s home state of South Carolina had one for decades.',
-    system: ''
+    system: 'county coroner'
   },
   'South Dakota': {
     fact: '',
-    system: ''
+    system: 'county coroner'
   },
   'Tennessee': {
     fact: '',
-    system: ''
+    system: 'county medical examiner'
   },
   'Texas': {
     fact: 'What if a justice of the peace investigated [NAME]\'s death? It could happen in Texas, where many serve as county coroners and have no medical or legal traning.',
@@ -165,15 +177,15 @@ var friendFacts = {
   },
   'Utah': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Vermont': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Virgina': {
     fact: '',
-    system: ''
+    system: 'state medical examiner'
   },
   'Washington': {
     fact: '',
@@ -181,7 +193,7 @@ var friendFacts = {
   },
   'West Virginia': {
     fact: 'What if [NAME] were to die in her home state of West Virginia, where you don\'t have to be a doctor to be a medical examiner?',
-    system: ''
+    system: 'state medical examiner'
   },
   'Wisconsin': {
     fact: '',
@@ -189,6 +201,6 @@ var friendFacts = {
   },
   'Wyoming': {
     fact: '',
-    system: ''
+    system: 'county coroner'
   }
 }
