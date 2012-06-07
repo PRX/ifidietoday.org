@@ -566,7 +566,7 @@ body.show #show {
 .slide3 .friend-facts {
   clear: both;
   list-style: none;
-  padding-top: 50px;
+  padding-top: 30px;
   margin-left: 100px;
 }
 
@@ -626,6 +626,29 @@ body.show #show {
 }
 
 
+.slide4 > h2 {
+  margin: 0;
+  background: black;
+  padding-top: 15px;
+  color: #d90a00;
+  font-family: 'Chivo';
+  font-weight: bold;
+  font-size: 36px;
+  z-index: 401;
+  position: relative;
+}
+
+.slide4 > h3 {
+  margin: 0;
+  background: black;
+  padding-bottom: 15px;
+  color: white;
+  font-family: 'Chivo';
+  font-weight: bold;
+  font-size: 24px;
+  position: relative;
+  z-index: 401;
+}
 
 .slide4 .stories {
   list-style: none;
@@ -636,9 +659,11 @@ body.show #show {
   width: 276px;
   height: 624px;
   float: left;
-  margin-top: -100px;
+  margin-top: -80px;
   position: relative;
   margin-left: -10px;
+  position: relative;
+  z-index: 400;
 }
 
 .slide4 .stories li:nth-of-type(1) { margin-left: 0; }
