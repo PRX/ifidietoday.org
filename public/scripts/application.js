@@ -38,17 +38,17 @@ $(function() {
     $('.birthyear').html(birthdayStr.split('/')[2]);
     $('.fbProfileImage').attr('src', 'https://graph.facebook.com/'+fbUser.id+'/picture?type=normal');
     $('#cert .header').html('State of '+_longState+' - Department of Health');
-    $('#cert .fname').html(fbUser.first_name);
-    $('#cert .lname').html(fbUser.last_name);
-    $('#cert .city').html(locationStr.split(',')[0]);
-    $('#cert .state').html(locationStr.split(',')[1]);
-    $('#cert .date').html(Date.today().getMonthName() + " " + Date.today().getDate() + ", " + (parseInt(Date.today().getYear()) + 1900));
+    $('#cert .fname').html(fbUser.first_name+" ");
+    $('#cert .lname').html(fbUser.last_name+" ");
+    $('#cert .city').html(locationStr.split(',')[0]+" ");
+    $('#cert .state').html(locationStr.split(',')[1]+" ");
+    $('#cert .date').html(Date.today().getMonthName() + " " + Date.today().getDate() + ", " + (parseInt(Date.today().getYear()) + 1900)+" ");
 
 
    var causes = ['drowning', 'skull fracture', 'internal injuries', 'asphyxiation', 'cardiac arrest', 'exsanguination', 'drug overdose', 'stroke'];
    var cause = causes[Math.floor((Math.random()*causes.length)+1)];
 
-    $('#cert .cause').html(cause);
+    $('#cert .cause').html(cause+" ");
 
     var system = friendFacts[_longState]['system'];
     $('#cert .system').html(system);
@@ -138,6 +138,15 @@ $(function() {
     populate();
   })
 
+  function typeCertificate() {
+    setTimeout(function() { $('.slide2 .fname').show().typewriter(); }, 2000);
+    setTimeout(function() { $('.slide2 .lname').show().typewriter(); }, 4000);
+    setTimeout(function() { $('.slide2 .city').show().typewriter(); }, 6000);
+    setTimeout(function() { $('.slide2 .state').show().typewriter(); }, 8000);
+    setTimeout(function() { $('.slide2 .date').show().typewriter(); }, 9000);
+    setTimeout(function() { $('.slide2 .cause').show().typewriter(); }, 11000);
+  }
+
   function updateNextPreviousButtons(page, total) {
   var slide = $('#modules section:nth-of-type('+page+')');
   $('a[href="#previous"]').html(slide.prev().attr('data-title'));
@@ -154,7 +163,13 @@ $(function() {
     } else {
       $('a[href="#next"]').show();
     }
+
+    if (page === 2) {
+      typeCertificate();
+    }
   }
+
+
 
   $('a[href="#next"]').each(function() {
     $(this).click(function(ev) {
