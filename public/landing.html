@@ -17,10 +17,11 @@
     <meta property="fb:app_id" content="<%= app.id %>" />
 
     <script src="/scripts/states.js"></script>
+    <script src="/scripts/facts.js"></script>
 
     <link rel="stylesheet" href="/stylesheets/landing.css">
   </head>
-  <body class="show">
+  <body class="landing">
     <div id="fb-root"></div>
 
     <div id="landing">
@@ -50,6 +51,14 @@
         <img src="/images/show/logos.png" alt="">
       </footer>
 
+      <nav>
+        <div>
+          <a href="" title="">Share</a>
+          <a href="" title="">React</a>
+          <a href="" title="">Watch</a>
+        </div>
+      </nav>
+
       <div id="layers">
         <div id="backgrounds" data-page="1">
           <img>
@@ -59,11 +68,11 @@
 
         <div id="modules" data-page="1">
           <div id="controls">
-            <a href="#previous">Previous</a>
-            <a href="#next">Next</a>
+            <a href="#previous" style="display: none;"></a>
+            <a href="#next">Your Death Certificate</a>
           </div>
 
-          <section class="slide1">
+          <section class="slide1" data-title="Basic Info">
             <h1>You are one</h1>
             <h1>of the 2.5 million</h1>
             <h1>people who died</h1>
@@ -75,7 +84,7 @@
             </div>
           </section>
 
-          <section class="slide2">
+          <section class="slide2" data-title="Your Death Certificate">
             <img src="/images/show/certificate.png" class="certificate" alt="">
             <div id="cert">
               <p class="header"></p>
@@ -88,7 +97,7 @@
             </div>
           </section>
 
-          <section class="slide3">
+          <section class="slide3" data-title="Dysfunctional System">
             <h1>America’s death investigation system is dysfunctional,</h1>
             <h1>with few standards, little oversight and mistakes that </h1>
             <h1>are literally buried. Rules and regulations differ </h1>
@@ -96,23 +105,23 @@
 
             <ul class="friend-facts">
               <li>
-                <h2>State</h2>
-                <h3>j</h3>
+                <h2></h2>
+                <h3></h3>
                 <img src="" alt="">
-                <p>In Georgia, where Abby Fee is from, a coroner need only have a high-school education, be at least 25 years old, have no felony convictions and complete a week's training course in death investigation.</p>
+                <p></p>
                 <a href="" title="">Tell Friend</a>
               </li>
               <li>
-                <h2>State</h2>
-                <h3>b</h3>
+                <h2></h2>
+                <h3></h3>
                 <img src="" alt="">
-                <p>In Georgia, where Abby Fee is from, a coroner need only have a high-school education, be at least 25 years old, have no felony convictions and complete a week's training course in death investigation.</p>
+                <p></p>
                 <a href="" title="">Tell Friend</a>
               </li>
             </ul>
           </section>
 
-          <section class="slide4">
+          <section class="slide4" data-title="A broken system">
             <ul class="stories">
               <li>
                 <h3>Dapibus Fringilla Sit Malesuada Etiam</h3>
@@ -156,4 +165,4 @@
 
     <script src="/scripts/application.js"></script>
   </body>
-</html>
+<!-- </html> -->

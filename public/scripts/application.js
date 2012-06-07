@@ -26,6 +26,7 @@ $(function() {
   var numModules = $('#modules section').length;
 
   var fbUser = "";
+  var friends = [];
   var locationStr = "";
   var birthdayStr = "";
 
@@ -43,16 +44,53 @@ $(function() {
     $('#cert .cause').html('Adipiscing Quam Tellus');
   }
 
+  function populateFriends() {
+    $.each(friends, function(i, friend) {
+      var _state = friend.location.name.split(',')[1].replace(' ','');
+      var _stateface = stateFace[states.indexOf(_state)];
+
+      var el = $('.friend-facts li:nth-of-type('+(i+1)+')');
+      $('img', el).attr('src', 'https://graph.facebook.com/'+friend.id+'/picture?type=normal');;
+      $('a', el).html('Tell ' + friend.first_name);
+      $('h2', el).html(friend.location.name.split(',')[1]);
+      $('h3', el).html(_stateface);
+
+      var fact = friendFacts[_state]['fact'].replace('[NAME]', friend.name);
+      if (fact === '') {
+        fact = genericFriendFacts[i];
+      }
+
+      $('p', el).html(fact);
+    });
+  }
+
   $('a.facebook').click(function() {
     FB.login(function(response) {
       if (response.authResponse) {
+        FB.api('/me/friends', { limit: 100 }, function(_friends) {
+
+          var usedLocation = '';
+          $.each(_friends['data'], function(i, friend) {
+            FB.api('/' + friend.id, {}, function(ff) {
+              if (ff.location && ff.location.name && (ff.location.name.match(/California|Georgia|Indiana|Louisiana|Massachusetts|Michigan|Mississippi|Nebraska|New Mexico|South Carolina|Texas|West Virginia$/))) {
+                if (friends.length < 2 && ff.location.name.split(',')[1].replace(' ', '') != usedLocation) {
+                  usedLocation = ff.location.name.split(',')[1].replace(' ', '');
+                  friends.push(ff);
+                } else {
+                  populateFriends();
+                }
+              }
+            });
+          });
+        });
+
         FB.api('/me', function(response) {
           fbUser = response;
 
           birthdayStr = response.birthday;
 
           if (response.location) {
-            var loc = response.location.name;;
+            var loc = response.location.name;
             var _city = loc.split(',')[0];
             var _stateAbr = stateCodes[states.indexOf(loc.split(',')[1].replace(' ',''))].toUpperCase();
 
@@ -77,8 +115,28 @@ $(function() {
     populate();
   })
 
+  function updateNextPreviousButtons(page, total) {
+  var slide = $('#modules section:nth-of-type('+page+')');
+  $('a[href="#previous"]').html(slide.prev().attr('data-title'));
+  $('a[href="#next"]').html(slide.next().attr('data-title'));
+
+    if (page === 1) {
+      $('a[href="#previous"]').hide();
+    } else {
+      $('a[href="#previous"]').show();
+    }
+
+    if (page === total) {
+      $('a[href="#next"]').hide();
+    } else {
+      $('a[href="#next"]').show();
+    }
+  }
+
   $('a[href="#next"]').each(function() {
     $(this).click(function(ev) {
+      ev.preventDefault();
+
       var _page = parseInt($('#modules').attr('data-page'), 10);
 
       if (_page+1 > numModules) {
@@ -87,6 +145,8 @@ $(function() {
         var page = _page + 1;
       }
 
+      updateNextPreviousButtons(page, numModules);
+
       $('#modules').attr('data-page', page);
       $('#backgrounds').attr('data-page', page);
     });
@@ -94,6 +154,8 @@ $(function() {
 
   $('a[href="#previous"]').each(function() {
     $(this).click(function(ev) {
+      ev.preventDefault();
+
       var _page = parseInt($('#modules').attr('data-page'), 10);
 
       if (_page-1 < 1) {
@@ -101,6 +163,8 @@ $(function() {
       } else {
         var page = _page - 1;
       }
+
+      updateNextPreviousButtons(page, numModules);
 
       $('#modules').attr('data-page', page);
       $('#backgrounds').attr('data-page', page);
