@@ -529,6 +529,7 @@ body.show #show {
   position: absolute;
   top: 200px;
   left: 50px;
+  opactity: 0;
 }
 
 #cert .check {

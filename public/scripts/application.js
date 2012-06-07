@@ -143,11 +143,11 @@ $(function() {
   $('a[href="#previous"]').html(slide.prev().attr('data-title'));
   $('a[href="#next"]').html(slide.next().attr('data-title'));
 
-    if (page === 1) {
-      $('a[href="#previous"]').hide();
-    } else {
-      $('a[href="#previous"]').show();
-    }
+    // if (page === 1) {
+    //   $('a[href="#previous"]').hide();
+    // } else {
+    //   $('a[href="#previous"]').show();
+    // }
 
     if (page === total) {
       $('a[href="#next"]').hide();
