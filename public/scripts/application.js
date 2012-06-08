@@ -30,8 +30,17 @@ $(function() {
   var locationStr = "";
   var birthdayStr = "";
 
+  $('#transition').bind('ended', function() {
+    $('#cover').fadeIn('slow', function() {
+      $('body').removeClass('video').addClass('show');
+      $('#cover').fadeOut('slow');
+    })
+  });
+
   function populate() {
-    $('body').removeClass('form').removeClass('landing').addClass('show');
+    // $('body').removeClass('form').removeClass('landing').addClass('show');
+    $('body').removeClass('form').removeClass('landing').addClass('video');
+    document.getElementById('transition').play();
 
     var _longState = states[stateCodes.indexOf(locationStr.split(',')[1].toLowerCase().replace(' ', ''))];
 

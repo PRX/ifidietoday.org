@@ -42,17 +42,28 @@ body {
   padding: 0;
 }
 
-body.landing {
+#cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  z-index: 5000;
+  display: none;
+}
+
+body.landing, body.video {
   background: url('/images/landing/background.png') #120004;
   background-position: 50% top;
   background-repeat: no-repeat;
 }
 
-body #landing {
+body #landing, body #video {
   display: none;
 }
 
-body.landing #landing {
+body.landing #landing, body.video #video {
   display: block;
 }
 
@@ -168,6 +179,15 @@ body.landing #landing {
 
 
 
+#video section {
+  position: absolute;
+  left: 50%;
+  top: 190px;
+  width: 640px;
+  height: 360px;
+  margin-left: -320px;
+}
+
 
 
 
@@ -200,11 +220,11 @@ body.show #show {
 }
 
 #show nav div {
-  width: 600px;
+  width: 420px;
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -300px;
+  margin-left: -210px;
 }
 
 #show nav a {
@@ -419,8 +439,8 @@ body.show #show {
   clear: both;
   font-family: 'CarbonType';
   font-size: 48px;
-  margin: 0 0 0 340px;
-  padding: 10px 0 0 0;
+  margin: 0 0 0 370px;
+  padding: 70px 0 0 0;
 }
 
 .slide1 h3 {
@@ -428,10 +448,27 @@ body.show #show {
   clear: both;
   font-family: 'CarbonType';
   font-size: 24px;
-  margin: 0 0 0 340px;
+  margin: 0 0 0 410px;
   text-transform: uppercase;
   font-weight: normal;
-  padding: 10px 0 0 0;
+  padding: 30px 0 0 0;
+  opacity: 1;
+}
+
+@-webkit-keyframes whatHappened {
+  0%  {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#modules[data-page='1'] .slide1 h3 {
+  -webkit-animation: whatHappened 5s 1;
 }
 
 
