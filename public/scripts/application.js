@@ -159,12 +159,22 @@ $(function() {
   })
 
   function typeCertificate() {
+    var checkPositionsX = [28,197,357];
+    var checkPositionsY = [405,434];
+
+    $('.slide2 .check').css('left', checkPositionsX[2]).css('top', checkPositionsY[1]);
+
     setTimeout(function() { $('.slide2 .fname').show().typewriter(); }, 2000);
     setTimeout(function() { $('.slide2 .lname').show().typewriter(); }, 4000);
     setTimeout(function() { $('.slide2 .city').show().typewriter(); }, 6000);
     setTimeout(function() { $('.slide2 .state').show().typewriter(); }, 8000);
     setTimeout(function() { $('.slide2 .date').show().typewriter(); }, 9000);
     setTimeout(function() { $('.slide2 .cause').show().typewriter(); }, 11000);
+    setTimeout(function() { $('.slide2 .check').show().typewriter(); }, 13500);
+    setTimeout(function() { $('.slide2 .signature').fadeIn(); }, 14000);
+    setTimeout(function() { $('.slide2 .stamp').fadeIn(); }, 16000);
+    setTimeout(function() { $('.slide2 .stamp').fadeOut(); }, 19000);
+    setTimeout(function() { $('.slide2 .questionmark').fadeIn(); }, 19000);
   }
 
   function updateNextPreviousButtons(page, total) {

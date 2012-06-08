@@ -592,6 +592,16 @@ body.show #show {
   text-align: right;
 }
 
+#cert .signature {
+  background: url('/images/show/signature.png');
+  width: 296px;
+  height: 90px;
+  position: absolute;
+  top: 450px;
+  left: 50px;
+  display: none;
+}
+
 #cert .stamp {
   background: url('/images/show/caseClosed.png');
   width: 448px;
@@ -600,7 +610,16 @@ body.show #show {
   position: absolute;
   top: 200px;
   left: 50px;
-  opacity: 0;
+  display: none;
+}
+
+#cert .questionmark {
+  color: #D90A00;
+  font-family: 'CarbonType';
+  font-size: 250px;
+  position: absolute;
+  top: -120px;
+  left: 200px;
 }
 
 #cert .check {
@@ -610,6 +629,7 @@ body.show #show {
   position: absolute;
   top: 200px;
   left: 50px;
+  display: none;
 }
 
 
