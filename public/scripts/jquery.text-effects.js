@@ -1,5 +1,5 @@
 (function($) {
-    
+
     function shuffle(a) {
         var i = a.length, j;
         while (i) {
@@ -9,14 +9,14 @@
             a[j] = t;
         }
     }
-    
+
     function randomAlphaNum() {
         var rnd = Math.floor(Math.random() * 62);
         if (rnd >= 52) return String.fromCharCode(rnd - 4);
         else if (rnd >= 26) return String.fromCharCode(rnd + 71);
         else return String.fromCharCode(rnd + 65);
     }
-    
+
     $.fn.rot13 = function() {
         this.each(function() {
             $(this).text($(this).text().replace(/[a-z0-9]/ig, function(chr) {
@@ -29,7 +29,7 @@
         });
         return this;
     };
-    
+
     $.fn.scrambledWriter = function() {
         this.each(function() {
             var $ele = $(this), str = $ele.text(), progress = 0, replace = /[^\s]/g,
@@ -39,11 +39,11 @@
                 $ele.text(str.substring(0, progress) + str.substring(progress, str.length).replace(replace, random));
                 progress += inc
                 if (progress >= str.length + inc) clearInterval(timer);
-            }, 100);
+            }, 40);
         });
         return this;
     };
-    
+
     $.fn.typewriter = function() {
         this.each(function() {
             var $ele = $(this), str = $ele.text(), progress = 0;
@@ -55,12 +55,12 @@
         });
         return this;
     };
-    
+
     $.fn.unscramble = function() {
         this.each(function() {
             var $ele = $(this), str = $ele.text(), replace = /[^\s]/,
                 state = [], choose = [], reveal = 25, random = randomAlphaNum;
-            
+
             for (var i = 0; i < str.length; i++) {
                 if (str[i].match(replace)) {
                     state.push(random());
@@ -69,10 +69,10 @@
                     state.push(str[i]);
                 }
             }
-            
+
             shuffle(choose);
             $ele.text(state.join(''));
-            
+
             var timer = setInterval(function() {
                 var i, r = reveal;
                 while (r-- && choose.length) {
@@ -86,5 +86,5 @@
         });
         return this;
     };
-    
+
 })(jQuery);
