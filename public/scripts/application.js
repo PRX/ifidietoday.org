@@ -74,6 +74,9 @@ $(function() {
   }
 
   function populateFriends() {
+
+
+
     $.each(friends, function(i, friend) {
       var _state = friend.location.name.split(',')[1].replace(' ','');
       var _stateface = stateFace[states.indexOf(_state)];
@@ -91,6 +94,18 @@ $(function() {
 
       $('p', el).html(fact);
     });
+    console.log('start checking');
+    if ($('p', '.friend-facts li:nth-of-type(1)').html() === '') {
+      $('img', '.friend-facts li:nth-of-type(1)').hide();
+      $('a', '.friend-facts li:nth-of-type(1)').hide();
+      $('p', '.friend-facts li:nth-of-type(1)').html(genericFriendFacts[0]);
+    }
+
+    if ($('p', '.friend-facts li:nth-of-type(2)').html() === '') {
+      $('img', '.friend-facts li:nth-of-type(2)').hide();
+      $('a', '.friend-facts li:nth-of-type(2)').hide();
+      $('p', '.friend-facts li:nth-of-type(2)').html(genericFriendFacts[1]);
+    }
   }
 
   function populateAnecdotes() {
@@ -187,6 +202,8 @@ $(function() {
     // } else {
     //   $('a[href="#previous"]').show();
     // }
+
+    populateFriends();
 
     if (page === total) {
       $('a[href="#next"]').hide();
