@@ -37,6 +37,16 @@ $(function() {
     })
   });
 
+  $('.stories li').click(function() {
+    $('#clip video').attr('src', $(this).attr('data-video-url'));
+    $('#clip').show();
+  });
+
+  $('#clip a').click(function() {
+    document.getElementById('video_clip').pause();
+    $('#clip').hide();
+  })
+
   function populate() {
     // $('body').removeClass('form').removeClass('landing').addClass('show');
     $('body').removeClass('form').removeClass('landing').addClass('video');
@@ -89,7 +99,8 @@ $(function() {
     $('.stories li').each(function(i, el) {
       $('h3', el).html(anecdotes[i]['title']);
       $('p', el).html(anecdotes[i]['body']);
-      $('img', el).attr('src', anecdotes[i]['posterURL'])
+      $('img', el).attr('src', anecdotes[i]['posterURL']);
+      $(this).attr('data-video-url', anecdotes[i]['videoURL']);
     });
 
   }
