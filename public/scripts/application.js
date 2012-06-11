@@ -110,13 +110,16 @@ $(function() {
     if ($('p', '.friend-facts li:nth-of-type(1)').html() === '') {
       $('img', '.friend-facts li:nth-of-type(1)').hide();
       $('a', '.friend-facts li:nth-of-type(1)').hide();
-      $('p', '.friend-facts li:nth-of-type(1)').html(genericFriendFacts[0]);
+      $('p', '.friend-facts li:nth-of-type(1)').html(genericFriendFacts[0]['fact']);
+
+      $('h3', '.friend-facts li:nth-of-type(1)').html(stateFace[states.indexOf(genericFriendFacts[0]['state'])]);
     }
 
     if ($('p', '.friend-facts li:nth-of-type(2)').html() === '') {
       $('img', '.friend-facts li:nth-of-type(2)').hide();
       $('a', '.friend-facts li:nth-of-type(2)').hide();
-      $('p', '.friend-facts li:nth-of-type(2)').html(genericFriendFacts[1]);
+      $('p', '.friend-facts li:nth-of-type(2)').html(genericFriendFacts[1]['fact']);
+      $('h3', '.friend-facts li:nth-of-type(2)').html(stateFace[states.indexOf(genericFriendFacts[1]['state'])]);
     }
   }
 
@@ -195,6 +198,7 @@ $(function() {
   });
 
   function typeCertificate() {
+    $('.slide2 .system').show();
     setTimeout(function() { $('.slide2 .fname').show().typewriter(); }, 2000);
     setTimeout(function() { $('.slide2 .lname').show().typewriter(); }, 4000);
     setTimeout(function() { $('.slide2 .city').show().typewriter(); }, 6000);

@@ -1,6 +1,8 @@
-var genericFriendFacts = ['A blind coroner? One county in South Carolina had one for decades. ',
-'In Indiana, an 18-year-old made headlines when she was elected deputy county coroner while still in high school.',
-'While many coroners and medical examiners don\'t even have X-ray machines, New Mexico has a new facility equipped with a full-body CT scanner to help detect hidden injuries.']
+var genericFriendFacts = [
+{fact: 'A blind coroner? One county in South Carolina had one for decades. ',state:'South Carolina'},
+{fact:'In Indiana, an 18-year-old made headlines when she was elected deputy county coroner while still in high school.',state:'Indiana'},
+{fact:'While many coroners and medical examiners don\'t even have X-ray machines, New Mexico has a new facility equipped with a full-body CT scanner to help detect hidden injuries.',state:'New Mexico'}
+]
 
 var friendFacts = {
   'Alabama': {

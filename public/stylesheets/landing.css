@@ -695,6 +695,7 @@ body.show #show {
   padding: 16px;
   float: left;
   margin: 4px;
+  min-height: 140px;
   position: relative;
 }
 
@@ -731,6 +732,7 @@ body.show #show {
   font-family: 'Chivo';
   font-size: 14px;
   line-height: 18px;
+  max-width: 190px;
 }
 
 .slide3 .friend-facts li a {
