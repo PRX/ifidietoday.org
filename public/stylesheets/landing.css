@@ -172,9 +172,9 @@ body.landing #landing, body.video #video {
   width: 260px;
 }
 
-.landing form h3 {
+.landing form h3, .landing form input[name='birthday'] {
   position: absolute;
-  top: 124px;
+  top: 140px;
   left: 20px;
 }
 
@@ -218,6 +218,27 @@ body.landing #landing, body.video #video {
   margin-left: -320px;
 }
 
+@-webkit-keyframes loading {
+  0%  {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+#video section h4 {
+  text-align: center;
+  color: #D90A00;
+  font-family: 'Chivo';
+  font-size: 28px;
+  margin-top: -1px;
+  -webkit-animation: loading 2s infinite;
+}
+
 
 
 
@@ -238,7 +259,7 @@ body.show #show {
 #show nav {
   position: absolute;
   left: 0;
-  bottom: 210px;
+  top: 680px;
   height: 50px;
   right: 0;
   background: url('/images/show/toolbar.png');
@@ -273,7 +294,7 @@ body.show #show {
   position: absolute;
   background: black;
   height: 200px;
-  bottom: 0;
+  top: 750px;
   left: 0;
   right: 0;
   z-index: 500;
@@ -485,6 +506,11 @@ body.show #show {
   opacity: 1;
 }
 
+.slide1 h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @-webkit-keyframes whatHappened {
   0%  {
     opacity: 0;
@@ -636,7 +662,7 @@ body.show #show {
 .slide3 h1 {
   background: #000;
   font-family: 'Chivo';
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   color: white;
   margin: 0;
@@ -644,7 +670,7 @@ body.show #show {
   float: left;
   padding: 3px 5px;
   clear: both;
-  margin-left: 200px;
+  margin-left: 100px;
 }
 
 .slide3 h1:nth-of-type(1) {
@@ -751,7 +777,7 @@ body.show #show {
   width: 276px;
   height: 624px;
   float: left;
-  margin-top: -80px;
+  margin-top: -100px;
   position: relative;
   margin-left: -10px;
   position: relative;

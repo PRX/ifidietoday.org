@@ -1,7 +1,7 @@
 window.fbAsyncInit = function() {
   FB.init({
-    // appId      : '371339856249007', // App ID Dev
-    appId      : '296851790405194', // App ID Stag
+    appId      : '371339856249007', // App ID Dev
+    // appId      : '296851790405194', // App ID Stag
     // appId      : '224293531011555', // App ID Prod
     channelUrl : '', // Channel File
     status     : true, // check login status
@@ -36,7 +36,7 @@ $(function() {
     $('#cover').fadeIn('slow', function() {
       $('body').removeClass('video').addClass('show');
       $('#cover').fadeOut('slow');
-    })
+    });
   });
 
   $('.stories li').click(function() {
@@ -47,7 +47,7 @@ $(function() {
   $('#clip a').click(function() {
     document.getElementById('video_clip').pause();
     $('#clip').hide();
-  })
+  });
 
   function populate() {
     // $('body').removeClass('form').removeClass('landing').addClass('show');
@@ -67,7 +67,15 @@ $(function() {
 
 
    var causes = ['drowning', 'skull fracture', 'internal injuries', 'asphyxiation', 'cardiac arrest', 'exsanguination', 'drug overdose', 'stroke'];
-   var cause = causes[Math.floor((Math.random()*causes.length)+1)];
+   var cause = causes[Math.floor((Math.random()*causes.length))];
+
+    var checkPositionsX = [28,197,357];
+    var checkPositionsY = [405,434];
+
+    $('.slide2 .check').css('left', checkPositionsX[Math.floor((Math.random()*3))]).css('top', checkPositionsY[Math.floor((Math.random()*2))]);
+
+    if (cause == "stroke" || cause == "cardiac arrest")
+    $('.slide2 .check').css('left', 28).css('top', 434);
 
     $('#cert .cause').html(cause+" ");
 
@@ -76,9 +84,6 @@ $(function() {
   }
 
   function populateFriends() {
-
-
-
     $.each(friends, function(i, friend) {
       var _state = friend.location.name.split(',')[1].replace(' ','');
       var _stateface = stateFace[states.indexOf(_state)];
@@ -96,7 +101,12 @@ $(function() {
 
       $('p', el).html(fact);
     });
-    console.log('start checking');
+
+      $('img', '.friend-facts li:nth-of-type(1)').show();
+      $('a', '.friend-facts li:nth-of-type(1)').show();
+      $('img', '.friend-facts li:nth-of-type(2)').show();
+      $('a', '.friend-facts li:nth-of-type(2)').show();
+
     if ($('p', '.friend-facts li:nth-of-type(1)').html() === '') {
       $('img', '.friend-facts li:nth-of-type(1)').hide();
       $('a', '.friend-facts li:nth-of-type(1)').hide();
@@ -159,6 +169,14 @@ $(function() {
             populate();
           } else {
             $('#birthday').html(response.birthday);
+            // if (response.birthday) {
+            //   $('#birthday').html(response.birthday).val(response.birthday);
+            // }
+
+            // if (response.location.name) {
+
+            // }
+
             $('body').addClass('form');
           }
         });
@@ -172,15 +190,11 @@ $(function() {
     e.preventDefault();
 
     locationStr = $('#city').val() + ', ' + $('#state').val();
+    // birthdayStr = $('#birthday').val();
     populate();
-  })
+  });
 
   function typeCertificate() {
-    var checkPositionsX = [28,197,357];
-    var checkPositionsY = [405,434];
-
-    $('.slide2 .check').css('left', checkPositionsX[2]).css('top', checkPositionsY[1]);
-
     setTimeout(function() { $('.slide2 .fname').show().typewriter(); }, 2000);
     setTimeout(function() { $('.slide2 .lname').show().typewriter(); }, 4000);
     setTimeout(function() { $('.slide2 .city').show().typewriter(); }, 6000);
@@ -196,8 +210,8 @@ $(function() {
 
   function updateNextPreviousButtons(page, total) {
   var slide = $('#modules section:nth-of-type('+page+')');
-  $('a[href="#previous"]').html(slide.prev().attr('data-title'));
-  $('a[href="#next"]').html(slide.next().attr('data-title'));
+  $('#controls a[href="#previous"]').html(slide.prev().attr('data-title'));
+  $('#controls a[href="#next"]').html(slide.next().attr('data-title'));
 
     // if (page === 1) {
     //   $('a[href="#previous"]').hide();
@@ -217,8 +231,6 @@ $(function() {
       typeCertificate();
     }
   }
-
-
 
   $('a[href="#next"]').each(function() {
     $(this).click(function(ev) {
